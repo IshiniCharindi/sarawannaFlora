@@ -3,8 +3,8 @@ import {Link} from "react-router-dom";
 
 const BaseHomeWelcomeBanner = () => {
     return (
-        <div className="baseHomeWelcomeBanner !bg-white border-2">
-            <section className=" border-2">
+        <div className="baseHomeWelcomeBanner !bg-white ">
+            <section className="">
                 <div className="px-4 mx-3 sm:px-6 lg:px-12 xl:px-4 2xl:px-17 ">
                     <div className="grid items-center grid-cols-1 md:grid-cols-2">
                         <div>
@@ -41,9 +41,9 @@ const BaseHomeWelcomeBanner = () => {
                             </p>
                         </div>
 
-                        <div className="relative border-2">
+                        <div className="relative ">
                             <img
-                                className="mt-5 relative w-auto mx-auto max-w-sm md:max-w-md xl:mx-auto 2xl:origin-bottom 2xl:scale-110"
+                                className="mt-5 relative mx-auto min-[500px]:max-w-md xl:mx-auto 2xl:origin-bottom 2xl:scale-110"
                                 src={welcomeImage}
                                 alt=""
                             />
