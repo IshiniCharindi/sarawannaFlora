@@ -6,6 +6,7 @@ import AboutUsMiddleBanner from "../component/AboutUsMiddleBanner.tsx";
 import AboutContent from "../component/AboutContent.tsx";
 import aboutTopBanner from '../assets/images/aboutTopBanner.jpg'
 import logo from '../assets/images/logo with bg.jpeg'
+import AboutUsWelcomeSection from "../component/AboutUsWelcomeSection.tsx";
 
 const AboutUs = () => {
     return (
@@ -16,6 +17,7 @@ const AboutUs = () => {
                 heading={"Your Gateway to International Markets"}
                 para={"Expand globally with our reliable export services."}
             />
+            <AboutUsWelcomeSection/>
             <AboutContent
                 images={[
                     aboutTopBanner,
