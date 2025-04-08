@@ -4,6 +4,7 @@ import BaseHomeAbout from "../component/BaseHomeAbout.tsx";
 import BaseHomeCountDown from "../component/BaseHomeCountDown.tsx";
 import BaseHomeProduct from "../component/BaseHomeProduct.tsx";
 import BaseHomeWelcomeBanner from "../component/BaseHomeWelcomeBanner.tsx";
+import Footer from "../component/Footer.tsx";
 
 
 const BaseHome = () => {
@@ -15,6 +16,7 @@ const BaseHome = () => {
             <BaseHomeCountDown/>
             <BaseHomeProduct/>
             <BaseHomeWelcomeBanner/>
+            <Footer/>
         </div>
     );
 };
