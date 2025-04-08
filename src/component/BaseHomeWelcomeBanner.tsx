@@ -41,9 +41,9 @@ const BaseHomeWelcomeBanner = () => {
                             </p>
                         </div>
 
-                        <div className="relative">
+                        <div className="relative border-2">
                             <img
-                                className="mx-20 relative scale-110 xl:max-w-md xl:mx-auto 2xl:origin-bottom 2xl:scale-110"
+                                className="mt-5 relative w-auto mx-auto max-w-sm md:max-w-md xl:mx-auto 2xl:origin-bottom 2xl:scale-110"
                                 src={welcomeImage}
                                 alt=""
                             />
