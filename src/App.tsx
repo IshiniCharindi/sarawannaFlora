@@ -1,5 +1,6 @@
 import {BrowserRouter, Route, Routes} from "react-router-dom";
-import BaseHome from "./screens/BaseHome.tsx";
+import BaseHome from "./features/BaseHome.tsx";
+import AdminBase from "./features/admin/AdminBase.tsx";
 
 function App() {
 
@@ -7,6 +8,8 @@ function App() {
       <BrowserRouter>
           <Routes>
               <Route element={<BaseHome/>} path='/'/>
+              <Route element={<AdminBase/>} path='/admin'/>
+
               {/*<Route element={<AdminBase/>} path='/admin'/>*/}
               {/*<Route element={<AboutUs/>} path='/about'/>*/}
               {/*<Route element={<Shop/>} path='/shop'/>*/}
