@@ -37,7 +37,7 @@ const BaseHomeCountDown = () => {
     return (
         <div>
             <section className="relative py-10 bg-white sm:py-16 my-5 ">
-                <div className="absolute inset-0 bg-cover bg-top" style={{ backgroundImage: `url(${baseHomeCountDownBg})` }}>
+                <div className="absolute inset-0 bg-cover bg-top bg-fixed" style={{ backgroundImage: `url(${baseHomeCountDownBg})` }}>
                     <div className="absolute inset-0 bg-black opacity-50"></div>
                 </div>
 
