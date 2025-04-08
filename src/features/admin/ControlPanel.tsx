@@ -1,6 +1,9 @@
 import React from 'react'
 import {motion} from 'framer-motion'
 import companyLogo from '../../assets/logo/company-logo.png'
+import {MdOutlineAddChart, MdManageHistory, MdOutlineSettings  } from 'react-icons/md'
+import {AiTwotoneContainer } from 'react-icons/ai'
+import {CgLogOut } from 'react-icons/cg'
 
 export default function ControlPanel() {
   return (
@@ -8,21 +11,22 @@ export default function ControlPanel() {
     initial={{x: -300}}
     animate={{x: 0}}
     exit={{x: -300}}
-    transition={{duration: 0.2}}
+    transition={{stiffness: 20, mass: 0.5, duration: 0.2}}
     className='h-screen w-[300px] bg-[#101A33] drop-shadow-lg flex flex-col justify-between items-center'>
         <div className='flex-column justify-center items-center'>
-        <h1 className="heading text-white pt-4 font-bold text-3xl ">Sarvanna Floral</h1>
+        <h1 className="heading text-white pt-4 font-bold text-3xl ">Saravana Floral</h1>
         <h3 className='text-white font-bold text-center'>CONTROL PANEL</h3>
         </div>
 
 
-        <div className="content flex flex-col w-full flex-grow justify-center items-center">
-            <div className="inner-content m-5 flex flex-col justify-center items-center w-full">
-                <button className='text-white font-bold m-2.5'>New Product</button>
-                <button className='text-white font-bold m-2.5'>Manage Products</button>
-                <button className='text-white font-bold m-2.5'>Orders</button>
-                <button className='text-white font-bold m-2.5'>Settings</button>
-                <button className='text-white font-bold m-2.5'>Logout</button>
+        <div className="content flex flex-col w-full flex-grow justify-center items-center p-5">
+            <div className="inner-content m-5 flex flex-col justify-center items-start w-full">
+                <button className='text-white font-bold m-2.5 flex flex-row items-center cursor-pointer'><MdOutlineAddChart style={{margin: '4px'}}/> New Product</button>
+                <button className='text-white font-bold m-2.5 flex flex-row items-center cursor-pointer'><MdManageHistory style={{margin: '4px'}}/> Manage Products</button>
+                <button className='text-white font-bold m-2.5 flex flex-row items-center cursor-pointer'><AiTwotoneContainer  style={{margin: '4px'}}/> Orders</button>
+                <button className='text-white font-bold m-2.5 flex flex-row items-center cursor-pointer'><MdOutlineSettings  style={{margin: '4px'}}/> Settings</button>
+                <button className='text-red-500 font-bold m-2.5 flex flex-row items-center cursor-pointer'><CgLogOut  style={{margin: '4px'}}/> Logout</button>
+             
             </div>
         </div>
 

@@ -6,6 +6,7 @@ import { combineReducers } from '@reduxjs/toolkit';
 
 
 import loadingSlice from './loading-slice';
+import mobileSlice from './mobile-slice';
 
 // const persistConfig = {
 //     key: 'root',
@@ -14,7 +15,8 @@ import loadingSlice from './loading-slice';
 
 
 const rootReducer = combineReducers({
-    loadingSlice: loadingSlice
+    loadingSlice: loadingSlice,
+    mobileSlice: mobileSlice
 })
 
 
