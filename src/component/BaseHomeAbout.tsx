@@ -1,11 +1,23 @@
 import aboutImage from "../assets/videos/about.mp4"
+import {Link} from "react-router-dom";
 const BaseHomeAbout = () => {
     return (
         <div>
-            <section className="py-10 bg-[var(--color-bg)] sm:py-16 lg:py-24">
-                <div className="max-w-7xl px-4 mx-auto sm:px-6 lg:px-8">
+            <section className="py-10 bg-[var(--color-bg)] sm:py-10">
+                <h1 style={{ fontFamily: 'Raleway, sans-serif' }} className="text-center font-thin max-[350px]:text-xl text-2xl sm:text-3xl md:text-4xl lg:text-5xl min-2xl:text-6xl"> About
+                    Us</h1>
+                <div className="flex justify-center items-center">
+                    <p className="text-center text-gray-400 mb-5 relative inline-block leading-[3] tracking-[4px]">
+                        Know about us
+                        <span
+                            className="absolute left-1/2 mt-5 transform -translate-x-1/2 bottom-0 w-[55px] h-[2px] bg-[var(--color-primary)]"></span>
+                    </p>
+                </div>
+
+
+                <div className="max-w-7xl px-4 mx-auto mt-5 sm:px-6 lg:px-8">
                     <div
-                        className="grid items-center grid-cols-1 md:grid-cols-12 lg:items-stretch gap-y-8 gap-x-12 xl:gap-x-20">
+                        className="grid items-center grid-cols-1 lg:grid-cols-12 lg:items-stretch gap-y-8 gap-x-5">
                         <div className="md:col-span-6 relative">
                             <div className="w-full mx-auto rounded-lg overflow-hidden shadow-lg">
                                 <video
@@ -18,31 +30,28 @@ const BaseHomeAbout = () => {
                                     style={{borderWidth: "16px"}}
                                 />
                             </div>
-
-                            <div className="absolute inset-0 flex items-center justify-center">
-                                <div className="flex items-center justify-center rounded-full w-28 h-28 bg-white/20">
-                                    <button type="button"
-                                            className="flex items-center justify-center w-20 h-20 text-white transition-all duration-200 rounded-full bg-gradient-to-r from-fuchsia-600 to-blue-600 hover:opacity-90">
-                                        <svg className="w-6 h-6 lg:w-8 lg:h-8" xmlns="http://www.w3.org/2000/svg"
-                                             viewBox="0 0 24 24" fill="currentColor">
-                                            <path
-                                                d="M8 6.82v10.36c0 .79.87 1.27 1.54.84l8.14-5.18c.62-.39.62-1.29 0-1.69L9.54 5.98C8.87 5.55 8 6.03 8 6.82z"></path>
-                                        </svg>
-                                    </button>
-                                </div>
-                            </div>
                         </div>
 
-                        <div className="md:col-span-5 flex flex-col justify-between md:py-5">
+                        <div className="md:col-span-6 flex flex-col justify-between my-4 mx-4">
                             <blockquote>
-                                <p className="text-2xl leading-relaxed text-black">You made it so simple. My new site is
-                                    so much faster and easier to work with than my old site. I just choose the page,
-                                    make the change and click save. No need to think twice before making it.</p>
+                                <h1 className="font-bold title max-[350px]:text-xl text-2xl sm:text-3xl md:text-4xl min-2xl:text-5xl">Lorem
+                                    ipsum dolor sit amet, consectetur adipisicing elit. </h1>
+                                <p className="text-justify sm:text-align text-lg text-gray-700 font-extrabold  mt-2">You made it so simple. My new site is
+                                    so much faster and easier to work with than my old site.</p>
+                                <p className="text-justify sm:text-align text-base text-black mt-2 ">
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum voluptatibus dolores
+                                    aspernatur animi perferendis iste! Culpa aut enim debitis optio illum ipsum quis
+                                    perferendis dolor expedita. Similique necessitatibus inventore doloremque.
+                                </p>
                             </blockquote>
 
-                            <div className="mt-6 lg:mt-auto">
-                                <p className="text-xl font-semibold text-black">Jenny Wilson</p>
-                                <p className="mt-2 text-base text-gray-600">Co-founder, Appson</p>
+                            <div className="-mt-4">
+                                <Link to="/contactus ">
+                                    <button
+                                        className="text-white font-bold border-1 rounded px-4 py-2 mx-0 sm:px-7 sm:py-3 text-center bg-[var(--color-primary)] m-8 max-w-[300px] max-sm:text-xs text-sm md:text-base min-2xl:text-lg">
+                                        Contact US
+                                    </button>
+                                </Link>
                             </div>
                         </div>
                     </div>

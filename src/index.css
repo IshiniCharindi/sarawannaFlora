@@ -1,4 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 @import "tailwindcss";
+
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+
+
 
 :root {
     --color-primary: #117748; /* Tailwind blue-500 */
