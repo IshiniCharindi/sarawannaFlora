@@ -81,35 +81,33 @@ const Footer = () => {
     return (
         <footer className="footer bg-[var(--color-dark)] text-white">
             <div className="container mx-auto px-4 py-10 sm:pt-16 lg:pt-24">
-                <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+                <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4">
                     {/* Company Info */}
-                    <div className="sm:col-span-2 lg:col-span-1">
-                        <div className="flex flex-col h-full">
-                            <img
-                                className="w-auto h-9"
-                                src="https://cdn.rareblocks.xyz/collection/celebration/images/logo.svg"
-                                alt="Company Logo"
-                            />
-                            <p className="mt-4 text-base leading-relaxed text-gray-400">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi asperiores autem commodi doloremque fugiat itaque magnam molestiae mollitia quod repellendus?
-                            </p>
-                            <div className="mt-6 flex space-x-4">
-                                {socialMedia.map((social, index) => (
-                                    <a
-                                        key={index}
-                                        href={social.url}
-                                        aria-label={social.name}
-                                        className="flex items-center justify-center text-[#117748] bg-white rounded-full w-8 h-8 hover:bg-green-100 transition-colors duration-200"
-                                    >
-                                        {social.icon}
-                                    </a>
-                                ))}
-                            </div>
+                    <div className="sm:col-span-2 lg:col-span-1 flex flex-col items-center sm:items-start">
+                        <img
+                            className="w-auto h-9"
+                            src="https://cdn.rareblocks.xyz/collection/celebration/images/logo.svg"
+                            alt="Company Logo"
+                        />
+                        <p className="mt-4 text-base leading-relaxed text-gray-400 text-center sm:text-left">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi asperiores autem commodi doloremque fugiat itaque magnam molestiae mollitia quod repellendus?
+                        </p>
+                        <div className="mt-6 flex space-x-4">
+                            {socialMedia.map((social, index) => (
+                                <a
+                                    key={index}
+                                    href={social.url}
+                                    aria-label={social.name}
+                                    className="flex items-center justify-center text-[#117748] bg-white rounded-full w-8 h-8 hover:bg-green-100 transition-colors duration-200"
+                                >
+                                    {social.icon}
+                                </a>
+                            ))}
                         </div>
                     </div>
 
                     {/* Quick Links */}
-                    <div>
+                    <div className="flex flex-col ml-7 items-center sm:items-start">
                         <h3 className="text-sm font-semibold tracking-widest text-gray-400 uppercase mb-4">
                             Quick Links
                         </h3>
@@ -129,15 +127,15 @@ const Footer = () => {
                     </div>
 
                     {/* Contact Details */}
-                    <div>
+                    <div className="flex flex-col -ml-5 items-center sm:items-start">
                         <h3 className="text-sm font-semibold tracking-widest text-gray-400 uppercase mb-4">
                             Contact Details
                         </h3>
                         <ul className="space-y-3">
                             {contactDetails.map((contact, index) => (
-                                <li key={index} className="flex items-start">
+                                <li key={index} className="flex items-start max-w-xs">
                                     <img src={contact.icon} className="w-4 h-4 mt-1 mr-2 flex-shrink-0" alt="" />
-                                    <span className="text-base text-gray-400 hover:text-white transition-colors duration-200">
+                                    <span className="text-base text-white transition-colors duration-200">
                     {contact.value}
                   </span>
                                 </li>
@@ -146,11 +144,11 @@ const Footer = () => {
                     </div>
 
                     {/* Gallery */}
-                    <div className="sm:col-span-2 lg:col-span-1">
+                    <div className="sm:col-span-2 lg:col-span-1 flex flex-col items-center sm:items-start">
                         <h3 className="text-sm font-semibold tracking-widest text-gray-400 uppercase mb-4">
                             Gallery
                         </h3>
-                        <div className="grid grid-cols-3 gap-3 sm:grid-cols-4 lg:grid-cols-3">
+                        <div className="grid grid-cols-3 gap-3 w-full">
                             {galleryImages.map((image, index) => (
                                 <img
                                     key={index}
