@@ -14,16 +14,19 @@ const FlowerCard: React.FC<FlowerCardProps> = ({ name, rating, price, timeRange,
     ));
 
     return (
-        <div className="rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
-            <div className="h-67 overflow-hidden">
+        <div className="rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 group relative">
+            <div className="h-67 overflow-hidden relative">
                 <img
                     src={imageUrl}
                     alt={name}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                     onError={(e) => {
                         (e.target as HTMLImageElement).src = "https://via.placeholder.com/300x200?text=Flower+Image";
                     }}
                 />
+                {/* Dark overlay that animates from bottom to top */}
+                <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-30 transition-all duration-1000 ease-in-out
+                               transform origin-bottom scale-y-0 group-hover:scale-y-100"></div>
             </div>
             <div className="p-4 flex flex-col items-center">
                 <h3 className="text-lg font-semibold mb-2 text-center">{name}</h3>
@@ -97,7 +100,7 @@ const BaseHomeProduct: React.FC = () => {
     ];
 
     return (
-        <div className="my-10 ">
+        <div className="my-10">
             <h1 style={{fontFamily: 'Raleway, sans-serif'}}
                 className="text-center font-thin max-[350px]:text-xl text-2xl sm:text-3xl md:text-4xl lg:text-5xl min-2xl:text-6xl"> Our
                 Products</h1>
@@ -108,7 +111,7 @@ const BaseHomeProduct: React.FC = () => {
                         className="absolute left-1/2 mt-5 transform -translate-x-1/2 bottom-0 w-[55px] h-[2px] bg-[var(--color-primary)]"></span>
                 </p>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-10">
+            <div className="!bg-white grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-10">
                 {flowers.map((flower, index) => (
                     <FlowerCard
                         key={index}
@@ -121,9 +124,7 @@ const BaseHomeProduct: React.FC = () => {
                 ))}
             </div>
         </div>
-
-    )
-        ;
+    );
 };
 
 export default BaseHomeProduct;
