@@ -1,11 +1,16 @@
 import React from 'react'
-import Loading from '../../component/Loading'
+import { Button } from 'antd'
+import { useDispatch } from 'react-redux'
+import { setLoading } from '../../redux/loading-slice'
+import { AppDispatch } from '../../redux/store'
 
 export default function AdminBase() {
+  const dispatch: AppDispatch = useDispatch()
+
   return (
     <div className='screen'>
-        <Loading/>
-        <h2> hello World</h2>
+        
+        
     </div>
   )
 }
