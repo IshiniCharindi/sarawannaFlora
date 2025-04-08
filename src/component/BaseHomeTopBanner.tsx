@@ -1,4 +1,4 @@
-import aboutImage from "../assets/videos/about.mp4"
+import topBannerVideo from "../assets/videos/baseHomeTopBanner.mp4"
 import {Link} from "react-router-dom";
 const BaseHomeTopBanner = () => {
     return (
@@ -20,7 +20,7 @@ const BaseHomeTopBanner = () => {
                         <div className="md:col-span-6 relative">
                             <div className="w-full mx-auto rounded-lg overflow-hidden shadow-lg">
                                 <video
-                                    src={aboutImage}
+                                    src={topBannerVideo}
                                     autoPlay
                                     loop
                                     muted

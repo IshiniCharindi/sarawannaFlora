@@ -1,6 +1,6 @@
 import Slider from "../component/Slider.tsx";
 import NavBar from "../component/NavBar.tsx";
-import BaseHomeAbout from "../component/BaseHomeAbout.tsx";
+import AboutUsTopBanner from "../component/AboutUsTopBanner.tsx";
 import BaseHomeCountDown from "../component/BaseHomeCountDown.tsx";
 import BaseHomeProduct from "../component/BaseHomeProduct.tsx";
 import BaseHomeWelcomeBanner from "../component/BaseHomeWelcomeBanner.tsx";
