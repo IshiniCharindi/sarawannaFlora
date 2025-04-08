@@ -1,0 +1,38 @@
+.headSection1 {
+    min-height: 80vh;
+    width: 100vw;
+    background-size: cover;
+    background-position: center;
+    color: white;
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Vertical centering */
+    align-items: center;     /* Horizontal centering */
+    text-align: center;
+    padding: 0 40px;
+}
+
+.headSection1 p {
+    font-weight: normal;
+    font-family: 'Times New Roman', Times, serif !important;
+    margin: 0;
+}
+
+.headSection1 #heading {
+    font-weight: normal;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width:576px){
+    .headSection1 {
+        min-height: 40vh;
+    }
+}
+
+@media screen and (min-width:2200px){
+    .headSection1 {
+        min-height: 40vh;
+    }
+}
