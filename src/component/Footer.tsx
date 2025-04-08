@@ -18,7 +18,7 @@ const Footer = () => {
                         <div className="col-span-2 md:col-span-3 lg:col-span-2 lg:pr-8">
                             <img className="w-auto h-9" src="https://cdn.rareblocks.xyz/collection/celebration/images/logo.svg" alt="" />
 
-                            <p className="text-base leading-relaxed text-gray-600 mt-7">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit.</p>
+                            <p className="text-base leading-relaxed text-gray-600 mt-7">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi asperiores autem commodi doloremque fugiat itaque magnam molestiae mollitia quod repellendus?</p>
 
                             <ul className="flex items-center space-x-3 mt-9">
                                 <li>
