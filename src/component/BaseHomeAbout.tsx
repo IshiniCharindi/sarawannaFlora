@@ -1,15 +1,22 @@
+import aboutImage from "../assets/videos/about.mp4"
 const BaseHomeAbout = () => {
     return (
         <div>
             <section className="py-10 bg-[var(--color-bg)] sm:py-16 lg:py-24">
                 <div className="max-w-7xl px-4 mx-auto sm:px-6 lg:px-8">
                     <div
-                        className="grid items-center grid-cols-1 lg:items-stretch md:grid-cols-2 gap-y-8 gap-x-12 xl:gap-x-20">
-                        <div className="relative">
-                            <div className="aspect-w-4 aspect-h-3 border-white border-16">
-                                <img className="object-cover w-full h-full"
-                                     src="https://cdn.rareblocks.xyz/collection/celebration/images/testimonials/5/man-using-phone.jpg"
-                                     alt=""/>
+                        className="grid items-center grid-cols-1 md:grid-cols-12 lg:items-stretch gap-y-8 gap-x-12 xl:gap-x-20">
+                        <div className="md:col-span-6 relative">
+                            <div className="w-full mx-auto rounded-lg overflow-hidden shadow-lg">
+                                <video
+                                    src={aboutImage}
+                                    autoPlay
+                                    loop
+                                    muted
+                                    playsInline
+                                    className="w-full h-[370px] object-cover border-white"
+                                    style={{borderWidth: "16px"}}
+                                />
                             </div>
 
                             <div className="absolute inset-0 flex items-center justify-center">
@@ -26,7 +33,7 @@ const BaseHomeAbout = () => {
                             </div>
                         </div>
 
-                        <div className="flex flex-col justify-between md:py-5">
+                        <div className="md:col-span-5 flex flex-col justify-between md:py-5">
                             <blockquote>
                                 <p className="text-2xl leading-relaxed text-black">You made it so simple. My new site is
                                     so much faster and easier to work with than my old site. I just choose the page,
