@@ -5,6 +5,7 @@ import BaseHomeCountDown from "../component/BaseHomeCountDown.tsx";
 import BaseHomeProduct from "../component/BaseHomeProduct.tsx";
 import BaseHomeWelcomeBanner from "../component/BaseHomeWelcomeBanner.tsx";
 import Footer from "../component/Footer.tsx";
+import CategoryCarousel from "../component/CategorySlider.tsx";
 
 
 const BaseHome = () => {
@@ -13,6 +14,7 @@ const BaseHome = () => {
             <NavBar/>
             <Slider/>
             <BaseHomeAbout/>
+            <CategoryCarousel/>
             <BaseHomeCountDown/>
             <BaseHomeProduct/>
             <BaseHomeWelcomeBanner/>
