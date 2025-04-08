@@ -1,9 +1,9 @@
 import aboutVideo from "../assets/videos/aboutUsBannerVideo.mp4"
 import {Link} from "react-router-dom";
-const AboutUsTopBanner = () => {
+const AboutUsMiddleBanner = () => {
     return (
         <div>
-            <section className="py-10 bg-[var(--color-bg)] sm:py-10">
+            <section className="mt-10 md:-mt-10 py-10 bg-[var(--color-bg)] sm:py-10">
                 <h1 style={{ fontFamily: 'Raleway, sans-serif' }} className="text-center font-thin max-[350px]:text-xl text-2xl sm:text-3xl md:text-4xl lg:text-5xl min-2xl:text-6xl"> About
                     Us</h1>
                 <div className="flex justify-center items-center">
@@ -62,4 +62,4 @@ const AboutUsTopBanner = () => {
     );
 };
 
-export default AboutUsTopBanner;
+export default AboutUsMiddleBanner;

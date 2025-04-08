@@ -1,6 +1,5 @@
 import welcomeImage from '../assets/images/WelcomeBannerImage.jpg';
 import {Link} from "react-router-dom";
-import React from "react";
 
 const BaseHomeWelcomeBanner = () => {
     return (
