@@ -6,7 +6,7 @@ const AboutUsWelcomeSection = () => {
             <div className="max-w-7xl mx-auto px-4">
                 <div className="grid md:grid-cols-2 gap-12 items-center">
                     <div className="mx-2 sm:mx-5">
-                        <h2 className="text-3xl md:text-4xl lg:text-4xl 2xl:text-5xl font-bold mb-6">About MasImpex</h2>
+                        <h2 className="text-3xl md:text-4xl lg:text-4xl 2xl:text-5xl font-bold mb-6">About Saravana Flora</h2>
                         <p className="text-gray-600 mb-4">
                             Mas Impex (Pvt) Ltd is a trusted name in the global trade industry, specializing in
                             wholesale
