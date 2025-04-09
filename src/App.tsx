@@ -9,6 +9,8 @@ import AboutUs from "./features/AboutUs.tsx";
 import ProductDetailView from "./features/ProductDetailView.tsx";
 import ContactUs from "./features/admin/ContactUs.tsx";
 import Login from "./features/Login.tsx";
+import IconCart from "./component/Shop/IconCart.tsx";
+import CartPage from "./features/CartPage.tsx";
 
 function App() {
     const loading = useSelector((state: RootState) => state.loadingSlice)
@@ -24,7 +26,8 @@ function App() {
               <Route element={<Shop/>} path='/shop'/>
               <Route element={<AboutUs/>} path='/aboutus'/>
               <Route element={<AboutUs/>} path='/aboutus'/>
-              <Route path="/product/details/:id" element={<ProductDetailView />} />
+              <Route element={<ProductDetailView />} path="/product/details/:id"  />
+              <Route element={<CartPage />} path="/product/details/cart"  />
 
               <Route element={<ContactUs/>} path='/contactus'/>
               <Route element={<Login/>} path='/login'/>
