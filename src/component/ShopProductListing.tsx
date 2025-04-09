@@ -213,7 +213,7 @@ const ShopProductListing: React.FC = () => {
                                 rating={product.rating}
                                 price={product.price}
                                 sold={product.sold}
-                                region={product.region}
+                                // region={product.region}
                                 imageUrl={product.imageUrl}
                             />
                         ))}
