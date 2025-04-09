@@ -19,7 +19,8 @@ const ProductDetails = () => {
     };
 
     return (
-        <div className="container mx-auto px-4 my-8 max-w-7xl mt-30">
+        <div className="container mx-auto px-4 my-8 max-w-7xl">
+            <h2 className="text-2xl font-bold mb-4 ">Product Details</h2>
             <div className="grid md:grid-cols-2 gap-12">
                 {/* Flower Images */}
                 <div className="md:sticky md:top-4">
@@ -49,10 +50,13 @@ const ProductDetails = () => {
 
                 {/* Product Details */}
                 <div>
-                    <h1 className="md:mt-5 text-2xl md:text-3xl font-bold text-gray-900 mb-3">Spring Blossom Flower Bouquet</h1>
+                    <h1 className="md:mt-5 text-2xl md:text-3xl font-bold text-gray-900 mb-3">Spring Blossom Flower
+                        Bouquet</h1>
                     <div className="flex items-center gap-3 mb-4">
-                        <span className="bg-pink-600 text-white text-xs font-semibold px-2.5 py-1 rounded-full">Seasonal</span>
-                        <span className="bg-green-600 text-white text-xs font-semibold px-2.5 py-1 rounded-full">Eco-Friendly</span>
+                        <span
+                            className="bg-pink-600 text-white text-xs font-semibold px-2.5 py-1 rounded-full">Seasonal</span>
+                        <span
+                            className="bg-green-600 text-white text-xs font-semibold px-2.5 py-1 rounded-full">Eco-Friendly</span>
                     </div>
 
                     <div className="flex items-center mb-4">
@@ -75,7 +79,8 @@ const ProductDetails = () => {
                                 >
                                     −
                                 </button>
-                                <div className="w-12 text-center flex items-center justify-center border-x border-gray-300">
+                                <div
+                                    className="w-12 text-center flex items-center justify-center border-x border-gray-300">
                                     {quantity}
                                 </div>
                                 <button
@@ -91,7 +96,8 @@ const ProductDetails = () => {
                             </div>
                         </div>
 
-                        <button className="bg-green-600 text-white h-12 px-6 rounded-lg hover:bg-green-700 transition-colors flex items-center justify-center gap-2 w-full">
+                        <button
+                            className="bg-green-600 text-white h-12 px-6 rounded-lg hover:bg-green-700 transition-colors flex items-center justify-center gap-2 w-full">
                             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
                                       d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/>

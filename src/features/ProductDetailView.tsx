@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 import {ProductInterface} from "../models/Product.tsx";
 import RelatedProductSlider from "../component/Shop/RelatedProductSlider.tsx";
 import ProductDetails from "../component/Shop/ProductDetails.tsx";
+import NavBar from "../component/Other/NavBar.tsx";
+import Footer from "../component/Other/Footer.tsx";
 
 
 const singleProduct = {
@@ -156,19 +158,18 @@ const ProductDetailsView = () => {
     }, [id, location.search]);
 
     return (
-        <div className="p-4">
-            <h2 className="text-2xl font-bold mb-4">Product Details</h2>
-
+        <div className="mt-20">
+            <NavBar/>
             {singleProduct ? (
                <ProductDetails/>
             ) : (
                 <p>Loading product details...</p>
             )}
 
-            <h3 className="text-xl font-semibold mb-2">More in {category}</h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <RelatedProductSlider productList={relatedProducts}/>
+                <RelatedProductSlider category={category} productList={relatedProducts}/>
             </div>
+            <Footer/>
         </div>
     );
 };

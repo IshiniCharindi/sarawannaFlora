@@ -1,10 +1,9 @@
 import { useState, useEffect } from "react";
-import FlowerCard from "./FlowerCard.tsx";
 import {ProductInterface} from "../../models/Product.tsx";
 import CategoryCard from "../BaseHome/CategoryCard.tsx";
 
 
-const RelatedProductSlider = ({ productList }: { productList: ProductInterface[] }) => {
+const RelatedProductSlider = ({ productList, category }: { productList: ProductInterface[], category: string }) => {
     const [relatedProductList, setRelatedProductList] = useState<Array<ProductInterface>>([]);
     const [currentStartIndex, setCurrentStartIndex] = useState(0);
     const [visibleItems, setVisibleItems] = useState(4); // Default number of visible items
@@ -72,6 +71,7 @@ const RelatedProductSlider = ({ productList }: { productList: ProductInterface[]
 
     return (
         <div className="mt-20 ">
+            <h3 className="text-xl font-semibold mb-2 mx-10">More in {category}</h3>
             <div className="mt-10 screen CategorySlider relative w-full mx-auto !h-auto mb-20">
                 <div className="overflow-hidden rounded-lg">
                     <div
