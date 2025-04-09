@@ -28,7 +28,7 @@ const AboutUs = () => {
                 reliability, and customer satisfaction, we connect businesses worldwide to premium products and seamless export
                 solutions. At G Capital, we’re committed to driving global growth and creating opportunities for businesses to thrive. "
             />
-            {/*<AboutUsMiddleBanner/>*/}
+            <AboutUsMiddleBanner/>
             <Footer/>
         </div>
     );

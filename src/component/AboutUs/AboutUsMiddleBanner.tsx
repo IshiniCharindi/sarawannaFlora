@@ -3,7 +3,7 @@ import {Link} from "react-router-dom";
 const AboutUsMiddleBanner = () => {
     return (
         <div>
-            <section className="mt-10 md:-mt-10 py-10 bg-[var(--color-bg)] sm:py-10">
+            <section className="mt-10 mb-20 md:-mt-10 py-10 bg-[var(--color-bg)] sm:py-10">
                 <h1 style={{ fontFamily: 'Raleway, sans-serif' }} className="text-center font-thin max-[350px]:text-xl text-2xl sm:text-3xl md:text-4xl lg:text-5xl min-2xl:text-6xl"> Why We Are Special</h1>
                 <div className="flex justify-center items-center">
                     <p className="text-center text-gray-400 mb-5 relative inline-block leading-[3] tracking-[4px]">
