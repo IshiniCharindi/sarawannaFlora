@@ -9,7 +9,7 @@ import Footer from "../../component/Other/Footer.tsx";
 
 const ContactUs = () => {
     return (
-        <div className="ContactUs bg-gray-200">
+        <div className="ContactUs">
             <NavBar/>
             <TopBanner
                 image={contactUsBanner}
