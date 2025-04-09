@@ -7,16 +7,6 @@ type AboutContentProps = {
 const AboutContent: React.FC<AboutContentProps> = ({ images, heading, description }) => {
     return (
         <div className="w-full bg-white mt-10">
-            <h1 style={{fontFamily: 'Raleway, sans-serif'}}
-                className="text-center font-thin max-[350px]:text-xl text-2xl sm:text-3xl md:text-4xl lg:text-5xl min-2xl:text-6xl"> About
-                Us</h1>
-            <div className="flex justify-center items-center">
-                <p className="text-center text-gray-400 mb-5 relative inline-block leading-[3] tracking-[4px]">
-                    Know about us
-                    <span
-                        className="absolute left-1/2 mt-5 transform -translate-x-1/2 bottom-0 w-[55px] h-[2px] bg-[var(--color-primary)]"></span>
-                </p>
-            </div>
             <section className="py-5">
                 <div className="max-w-7xl px-4 mx-auto sm:px-6 lg:px-8">
                     <div className="grid items-center grid-cols-1 md:grid-cols-2 gap-y-10 md:gap-x-12">

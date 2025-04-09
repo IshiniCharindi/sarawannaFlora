@@ -28,7 +28,7 @@ const AboutImageSlider = () => {
     }, []);
 
     return (
-        <div className="aboutImageSlider relative w-[80%] h-[250px] md:h-[300px] lg:h-[350px]">
+        <div className="aboutImageSlider relative w-[80%] h-[250px] md:h-[300px] ">
             <div className="w-full h-full rounded-lg shadow-lg overflow-hidden relative">
                 <img
                     src={images[currentIndex]}
@@ -39,13 +39,13 @@ const AboutImageSlider = () => {
                 <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
                     <button
                         onClick={() => setCurrentIndex(getPrevIndex())}
-                        className="btn btn-circle opacity-70 hover:opacity-100"
+                        className="btn text-white btn-circle opacity-70 hover:opacity-100 hover:cursor-pointer"
                     >
                         ❮
                     </button>
                     <button
                         onClick={() => setCurrentIndex(getNextIndex())}
-                        className="btn btn-circle opacity-70 hover:opacity-100"
+                        className="btn text-white btn-circle opacity-70 hover:opacity-100 hover:cursor-pointer"
                     >
                         ❯
                     </button>
