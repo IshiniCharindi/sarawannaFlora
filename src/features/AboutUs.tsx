@@ -1,12 +1,12 @@
-import TopBanner from "../component/TopBanner.tsx";
+import TopBanner from "../component/Other/TopBanner.tsx";
 import aboutBanner from "../assets/images/aboutBanner.jpg";
-import NavBar from "../component/NavBar.tsx";
-import Footer from "../component/Footer.tsx";
-import AboutUsMiddleBanner from "../component/AboutUsMiddleBanner.tsx";
-import AboutContent from "../component/AboutContent.tsx";
+import NavBar from "../component/Other/NavBar.tsx";
+import Footer from "../component/Other/Footer.tsx";
+import AboutUsMiddleBanner from "../component/AboutUs/AboutUsMiddleBanner.tsx";
+import AboutContent from "../component/AboutUs/AboutContent.tsx";
 import aboutTopBanner from '../assets/images/aboutTopBanner.jpg'
 import logo from '../assets/images/logo with bg.jpeg'
-import AboutUsWelcomeSection from "../component/AboutUsWelcomeSection.tsx";
+import AboutUsWelcomeSection from "../component/AboutUs/AboutUsWelcomeSection.tsx";
 
 const AboutUs = () => {
     return (

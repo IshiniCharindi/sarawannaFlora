@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import cart from "../assets/icons/cart.png";
-import login from "../assets/icons/login.png";
+import cart from "../../assets/icons/cart.png";
+import login from "../../assets/icons/login.png";
 import { Link } from "react-router-dom";
 
 const NavBar = () => {

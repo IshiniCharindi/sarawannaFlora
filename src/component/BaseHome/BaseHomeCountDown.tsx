@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import baseHomeCountDownBg from '../assets/images/baseHomeCountDown.jpg'
+import baseHomeCountDownBg from '../../assets/images/baseHomeCountDown.jpg'
 const BaseHomeCountDown = () => {
     // Initial states for each count
     const [years, setYears] = useState(0);

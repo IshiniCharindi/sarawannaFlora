@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import FlowerCard from "./FlowerCard";
+import FlowerCard from "./FlowerCard.tsx";
 import ShopFilterSideBar from "./ShopFilterSideBar.tsx";
 
 interface Product {

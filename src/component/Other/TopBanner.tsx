@@ -1,4 +1,4 @@
-import "../styles/headsection.css";
+import "../../styles/headsection.css";
 const TopBanner = (props: any) => {
     return (
             <div

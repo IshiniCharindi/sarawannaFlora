@@ -1,21 +1,13 @@
 import { lazy, Suspense, useState } from "react";
 
-const Details = lazy(() => import("../component/Details"));
+const Details = lazy(() => import("../component/Shop/Details.tsx"));
 
 const FlowerProductDetailView = () => {
     const [selectedImage, setSelectedImage] = useState("bouquet_red");
-    const [selectedColor, setSelectedColor] = useState("red");
     const [quantity, setQuantity] = useState(1);
     const [selectedArrangement, setSelectedArrangement] = useState("standard");
 
-    const colorOptions = [
-        { name: "red", display: "Red Roses", hex: "#dc2626" },
-        { name: "pink", display: "Pink Peonies", hex: "#ec4899" },
-        { name: "white", display: "White Lilies", hex: "#f3f4f6" },
-        { name: "yellow", display: "Sunflowers", hex: "#facc15" },
-        { name: "purple", display: "Lavender", hex: "#9333ea" },
-        { name: "mixed", display: "Rainbow Mix", hex: "linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet)" }
-    ];
+
 
     const arrangementOptions = [
         { id: "standard", name: "Standard Bouquet", price: 49.99 },
@@ -40,7 +32,7 @@ const FlowerProductDetailView = () => {
                     <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100 mb-4">
                         <img
                             src={`https://images.unsplash.com/photo-1535254973040-607b474cb50d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&h=800&q=80`}
-                            className="w-full h-auto max-h-[500px] object-contain mx-auto rounded-lg"
+                            className="w-full h-auto max-h-[400px] object-contain mx-auto rounded-lg"
                             alt="Beautiful Flower Bouquet"
                         />
                     </div>
@@ -82,7 +74,6 @@ const FlowerProductDetailView = () => {
                         <del className="text-lg text-gray-500 mr-3">${(currentPrice * 1.2).toFixed(2)}</del>
                         <span className="bg-green-100 text-green-800 text-sm font-medium px-2.5 py-1 rounded-full">Special Offer</span>
                     </div>
-                    
 
                     {/* Quantity & Actions */}
                     <div className="mb-8">
@@ -111,12 +102,6 @@ const FlowerProductDetailView = () => {
                                 Add to Cart
                             </button>
                         </div>
-                        <button className="w-full bg-pink-500 text-white h-12 px-6 rounded-lg hover:bg-pink-600 transition-colors flex items-center justify-center gap-2 mb-3">
-                            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
-                            </svg>
-                            Buy Now
-                        </button>
                     </div>
 
                     {/* Product Highlights */}
@@ -139,24 +124,6 @@ const FlowerProductDetailView = () => {
                                 </li>
                             ))}
                         </ul>
-                    </div>
-
-                    {/* Delivery Info */}
-                    <div className="bg-green-50 rounded-lg p-4 mb-8">
-                        <div className="flex items-start gap-3">
-                            <svg className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                            </svg>
-                            <div>
-                                <h4 className="font-medium text-green-800 mb-1">Same-Day Delivery Available</h4>
-                                <p className="text-sm text-green-700 mb-2">
-                                    Order before 2pm for same-day delivery in most areas. Additional $9.99 delivery fee.
-                                </p>
-                                <button className="text-sm text-green-600 font-medium hover:underline">
-                                    Check delivery availability in your area
-                                </button>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>

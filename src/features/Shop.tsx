@@ -1,9 +1,9 @@
 
-import Footer from "../component/Footer.tsx";
-import NavBar from "../component/NavBar.tsx";
-import TopBanner from "../component/TopBanner.tsx";
+import Footer from "../component/Other/Footer.tsx";
+import NavBar from "../component/Other/NavBar.tsx";
+import TopBanner from "../component/Other/TopBanner.tsx";
 import shopBanner from "../assets/images/shopBanner.jpg";
-import ShopProductListing from "../component/ShopProductListing.tsx";
+import ShopProductListing from "../component/Shop/ShopProductListing.tsx";
 
 const Shop = () => {
     return (
