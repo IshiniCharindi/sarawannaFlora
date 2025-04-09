@@ -7,6 +7,7 @@ import { useSelector } from 'react-redux'
 import { RootState } from './redux/store.tsx'
 import AboutUs from "./features/AboutUs.tsx";
 import ProductDetailView from "./features/ProductDetailView.tsx";
+import ContactUs from "./features/admin/ContactUs.tsx";
 
 function App() {
     const loading = useSelector((state: RootState) => state.loadingSlice)
@@ -21,7 +22,8 @@ function App() {
               <Route element={<AdminBase/>} path='/admin'/>
               <Route element={<Shop/>} path='/shop'/>
               <Route element={<AboutUs/>} path='/aboutus'/>
-              <Route element={<AboutUs/>} path='/aboutus'/>
+              <Route element={<ContactUs/>} path='/contactus'/>
+
               <Route element={<ProductDetailView/>} path='/p'/>
 
               {/*<Route element={<AdminBase/>} path='/admin'/>*/}
