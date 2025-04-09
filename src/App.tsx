@@ -10,7 +10,7 @@ import ProductDetailView from "./features/ProductDetailView.tsx";
 import ContactUs from "./features/admin/ContactUs.tsx";
 import Login from "./features/Login.tsx";
 import IconCart from "./component/Shop/IconCart.tsx";
-import CartPage from "./component/Shop/CartPage.tsx";
+import CartPage from "./features/CartPage.tsx";
 
 function App() {
     const loading = useSelector((state: RootState) => state.loadingSlice)

@@ -11,7 +11,7 @@ type FlowerItem = {
     inStock: boolean;
 };
 
-const CartPage = () => {
+const CartContent = () => {
     const [cartItems, setCartItems] = useState<FlowerItem[]>([
         {
             id: 1,
@@ -64,7 +64,7 @@ const CartPage = () => {
     };
 
     return (
-        <div className="min-h-screen bg-gray-50 py-8 px-4 sm:px-6 lg:px-8">
+        <div className="min-h-screen bg-gray-50 py-8 px-4 sm:px-6 lg:px-8 mt-20">
             <div className="max-w-5xl mx-auto">
                 {/* Header */}
                 <div className="mb-8">
@@ -214,7 +214,7 @@ const CartPage = () => {
                                 <div className="mt-6">
                                     <button
                                         disabled={cartItems.length === 0}
-                                        className={`w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white ${cartItems.length === 0 ? 'bg-gray-300 cursor-not-allowed' : 'bg-pink-600 hover:bg-pink-700'}`}
+                                        className={`w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white ${cartItems.length === 0 ? 'bg-gray-300 cursor-not-allowed' : 'bg-black hover:bg-pink-700'}`}
                                     >
                                         Checkout
                                     </button>
@@ -266,4 +266,4 @@ const CartPage = () => {
     );
 };
 
-export default CartPage;
+export default CartContent;
