@@ -1,132 +1,113 @@
-import React, {useState} from 'react'
-import {Form, Input, Select, Checkbox, Upload, Button} from 'antd'
+import { useState } from 'react'
+import { Form, Input, Select, Checkbox, Upload, Button, Row, Col } from 'antd'
 import type { GetProp, UploadFile, UploadProps } from 'antd';
 import ImgCrop from 'antd-img-crop';
-
+import { Editor, EditorTextChangeEvent } from "primereact/editor";
 
 type FileType = Parameters<GetProp<UploadProps, 'beforeUpload'>>[0];
 export default function NewProduct() {
-  
 
+  const [editableText, setEditableText] = useState<any>('');
+  const [fileList, setFileList] = useState<UploadFile[]>([]);
 
-    const [fileList, setFileList] = useState<UploadFile[]>([
-      // {
-      //   uid: '-1',
-      //   name: 'image.png',
-      //   status: 'done',
-      //   url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
-      // },
-    ]);
-  
-    const onChange: UploadProps['onChange'] = ({ fileList: newFileList }) => {
-      setFileList(newFileList);
-    };
-  
-    const onPreview = async (file: UploadFile) => {
-      let src = file.url as string;
-      if (!src) {
-        src = await new Promise((resolve) => {
-          const reader = new FileReader();
-          reader.readAsDataURL(file.originFileObj as FileType);
-          reader.onload = () => resolve(reader.result as string);
-        });
-      }
-      const image = new Image();
-      image.src = src;
-      const imgWindow = window.open(src);
-      imgWindow?.document.write(image.outerHTML);
-    };
+  const onChange: UploadProps['onChange'] = ({ fileList: newFileList }) => {
+    setFileList(newFileList);
+  };
 
-
-
+  const onPreview = async (file: UploadFile) => {
+    let src = file.url as string;
+    if (!src) {
+      src = await new Promise((resolve) => {
+        const reader = new FileReader();
+        reader.readAsDataURL(file.originFileObj as FileType);
+        reader.onload = () => resolve(reader.result as string);
+      });
+    }
+    const image = new Image();
+    image.src = src;
+    const imgWindow = window.open(src);
+    imgWindow?.document.write(image.outerHTML);
+  };
 
   return (
-    <div className='flex flex-col flex-1 w-full h-full'>
-      <Form 
-      layout='vertical' style={{fontWeight: 'bold'}}>
-        <div className="form-row">
-          <Form.Item label="Title" 
-          style={{margin: '5px', flex: '2 1 0'}}
-          rules={[
-            { required: true, message: 'Please input the title!' },]}>
-            <Input />
-          </Form.Item>
+      <div className='flex flex-col flex-1 w-full h-full'>
+        <Form layout='vertical' style={{ fontWeight: 'bold' }}>
+          <Row gutter={[16, 16]}>
+            <Col xs={24} sm={12} md={8}>
+              <Form.Item label="Title" rules={[{ required: true, message: 'Please input the title!' }]}>
+                <Input />
+              </Form.Item>
+            </Col>
 
-          <Form.Item label="Category" 
-          style={{margin: '5px', flex: '1 1 0'}}
-          rules={[
-            { required: true, message: 'Please input the title!' },]}>
-            <Select/>
-          </Form.Item>
+            <Col xs={24} sm={12} md={8}>
+              <Form.Item label="Category" rules={[{ required: true, message: 'Please select a category!' }]}>
+                <Select />
+              </Form.Item>
+            </Col>
 
-          <Form.Item label="Unit" 
-          style={{margin: '5px', flex: '1 1 0'}}
-          rules={[
-            { required: true, message: 'Please input the title!' },]}>
-            <Input />
-          </Form.Item>
-        </div>
+            <Col xs={24} sm={12} md={8}>
+              <Form.Item label="Unit" rules={[{ required: true, message: 'Please input the unit!' }]}>
+                <Input />
+              </Form.Item>
+            </Col>
+          </Row>
 
+          <Row gutter={[16, 16]} align="bottom">
+            <Col xs={24} sm={12} md={6}>
+              <Form.Item label="Unit Price (LKR)" rules={[{ required: true, message: 'Please input the price!' }]}>
+                <Input type="number" />
+              </Form.Item>
+            </Col>
 
-        <div className="form-row items-end">
-          <Form.Item label="Unit Price (LKR)"
-          style={{margin: '5px', flex: '0 1 200px', marginRight: '150px'}}
-          rules={[
-            { required: true, message: 'Please input the title!' ,},]}>
-              <Input type='number'/>
-          </Form.Item>
+            <Col xs={12} sm={12} md={6}>
+              <Form.Item label="In Stock" valuePropName="checked">
+                <Checkbox defaultChecked />
+              </Form.Item>
+            </Col>
 
-
-          <Form.Item label="In Stock"
-          layout='horizontal'
-          style={{margin: '5px', flex: '0 1 100px', fontWeight: 'bold'}}
-          rules={[
-            { required: true, message: 'Please input the title!' ,},]}>
-              <Checkbox checked/>
-          </Form.Item>
-
-          <Form.Item label="Top Product"
-          layout='horizontal'
-          style={{margin: '5px', flex: '0 1 100px', fontWeight: 'bold'}}
-          rules={[
-            { required: true, message: 'Please input the title!' ,},]}>
-              <Checkbox/>
-          </Form.Item>
-        </div>
-
-        <div className="form-row my-10">
-          <ImgCrop rotationSlider>
-            <Upload
-            maxCount={8}
-              action="https://660d2bd96ddfa2943b33731c.mockapi.io/api/upload"
-              listType="picture-card"
-              fileList={fileList}
-              onChange={onChange}
-              onPreview={onPreview}
-            >
-              {fileList.length < 5 && '+ Upload'}
-            </Upload>
-          </ImgCrop>
-        </div>
+            <Col xs={12} sm={12} md={6}>
+              <Form.Item label="Top Product" valuePropName="checked">
+                <Checkbox />
+              </Form.Item>
+            </Col>
+            <Col  xs={24} sm={12} md={6}>
+              <ImgCrop rotationSlider>
+                <Upload
+                    maxCount={8}
+                    action="https://660d2bd96ddfa2943b33731c.mockapi.io/api/upload"
+                    listType="picture-card"
+                    fileList={fileList}
+                    onChange={onChange}
+                    onPreview={onPreview}
+                >
+                  {fileList.length < 5 && '+ Upload'}
+                </Upload>
+              </ImgCrop>
+            </Col>
+          </Row>
 
 
-        <div className="form-row">
-            <Form.Item label="Description"
-          name="description"
-          style={{margin: '5px', flex: '0 1 100px', flexGrow: 1}}
-          rules={[
-            { required: true, message: 'Please input the title!' ,},]}>
-              <Input.TextArea rows={10} cols={60}/>
-            </Form.Item>
-        </div>
+          <Row gutter={[16, 16]}>
+            <Col span={24}>
+              <Form.Item name="editableText" label="Product Description">
+                <Editor
+                    value={editableText}
+                    onTextChange={(e: EditorTextChangeEvent) => setEditableText(e.htmlValue)}
+                    style={{ height: '320px' }}
+                />
+              </Form.Item>
+            </Col>
+          </Row>
 
-
-        <div className="form-row !max-w-[900px]">
-          <Button type='primary' style={{flex: 1, margin: '10px'}}>Submit</Button>
-          <Button type='default' style={{flex: 1, margin: '10px'}} className='!border-red-500 !text-red-500'>Reset</Button>
-        </div>
-
-      </Form>
-    </div>
-  )
+          <Row justify="center" gutter={[16, 16]} className="!max-w-[900px]">
+            <Col>
+              <Button type="primary" style={{ margin: '10px' }}>Submit</Button>
+            </Col>
+            <Col>
+              <Button type="default" style={{ margin: '10px' }} className="!border-red-500 !text-red-500">Reset</Button>
+            </Col>
+          </Row>
+        </Form>
+      </div>
+  );
 }
