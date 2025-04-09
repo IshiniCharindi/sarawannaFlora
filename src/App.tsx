@@ -22,7 +22,8 @@ function App() {
               <Route element={<Shop/>} path='/shop'/>
               <Route element={<AboutUs/>} path='/aboutus'/>
               <Route element={<AboutUs/>} path='/aboutus'/>
-              <Route element={<ProductDetailView/>} path='/p'/>
+              <Route path="/product/details/:id" element={<ProductDetailView />} />
+
 
               {/*<Route element={<AdminBase/>} path='/admin'/>*/}
               {/*<Route element={<AboutUs/>} path='/about'/>*/}
