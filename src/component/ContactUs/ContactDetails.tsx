@@ -34,7 +34,7 @@ const ContactDetails = () => {
   ];
 
   return (
-    <div className="contactDetails bg-[var(--color-light)]">
+    <div className="contactDetails bg-[var(--color-light)] mt-50">
       <section className="py-10 mt-28 sm:py-16 lg:py-24">
         <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 text-center sm:grid-cols-2 gap-y-8 lg:grid-cols-4 sm:gap-12">
