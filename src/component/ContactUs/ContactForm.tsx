@@ -20,15 +20,15 @@ const ContactForm = () => {
                         {/* Background image container for the form */}
 
                             {/* Dark overlay for better readability */}
-                            <div className="absolute inset-0 bg-black rounded-2xl opacity-20"></div>
+                            <div className="absolute inset-0 bg-black rounded-2xl opacity-1"></div>
 
                             {/* Form content with relative positioning */}
                             <div className="relative z-10">
-                                <h3 className="text-3xl font-semibold text-center text-white">Send us a message</h3>
+                                <h3 className="text-3xl font-semibold text-center text-black">Send us a message</h3>
                                 <form action="#" method="POST" className="mt-14">
                                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-5 gap-y-4">
                                         <div>
-                                            <label htmlFor="" className="text-base font-medium text-white"> Your name </label>
+                                            <label htmlFor="" className="text-base font-medium text-black"> Your name </label>
                                             <div className="mt-2.5 relative">
                                                 <input
                                                     type="text"
@@ -40,7 +40,7 @@ const ContactForm = () => {
                                         </div>
 
                                         <div>
-                                            <label htmlFor="" className="text-base font-medium text-white"> Email address </label>
+                                            <label htmlFor="" className="text-base font-medium text-black"> Email address </label>
                                             <div className="mt-2.5 relative">
                                                 <input
                                                     type="email"
@@ -52,7 +52,7 @@ const ContactForm = () => {
                                         </div>
 
                                         <div>
-                                            <label htmlFor="" className="text-base font-medium text-white"> Phone number </label>
+                                            <label htmlFor="" className="text-base font-medium text-black"> Phone number </label>
                                             <div className="mt-2.5 relative">
                                                 <input
                                                     type="tel"
@@ -64,7 +64,7 @@ const ContactForm = () => {
                                         </div>
 
                                         <div>
-                                            <label htmlFor="" className="text-base font-medium text-white"> Company name </label>
+                                            <label htmlFor="" className="text-base font-medium text-black"> Company name </label>
                                             <div className="mt-2.5 relative">
                                                 <input
                                                     type="text"
@@ -76,7 +76,7 @@ const ContactForm = () => {
                                         </div>
 
                                         <div className="sm:col-span-2">
-                                            <label htmlFor="" className="text-base font-medium text-white"> Message </label>
+                                            <label htmlFor="" className="text-base font-medium text-black"> Message </label>
                                             <div className="mt-2.5 relative">
                                                 <textarea
                                                     name="message"
