@@ -21,7 +21,8 @@ const AboutUsWelcomeSection = () => {
                 {/*<div className="absolute inset-0 bg-black/25 bg-opacity-10"></div>*/}
 
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 items-center">
+                    {/*<div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 items-center">*/}
+                    <div className="grid grid-cols-1 items-center -mt-48">
                         <div className="mx-2 sm:mx-5 order-1 md:order-1 ">
                             <div className="mx-2 sm:mx-5 order-2 md:order-1   ">
                                 <h2 className="aboutTopic text-2xl -mt-10 sm:text-3xl md:text-3xl lg:text-4xl xl:text-[2.8rem] 2xl:text-5xl font-bold mb-4 sm:mb-6 sm:mt-10 md:mt-10 text-black">
@@ -43,9 +44,9 @@ const AboutUsWelcomeSection = () => {
 
                             </div>
                         </div>
-                        <div className="order-2 md:order-2 w-full flex justify-center">
-                            <AboutImageSlider/>
-                        </div>
+                        {/*<div className="order-2 md:order-2 w-full flex justify-center">*/}
+                        {/*    <AboutImageSlider/>*/}
+                        {/*</div>*/}
                     </div>
                 </div>
             </div>

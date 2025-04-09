@@ -27,7 +27,7 @@ const AboutImageSlider = () => {
     }, [currentIndex]); // Added currentIndex to dependencies to avoid stale closures
 
     return (
-        <div className="aboutImageSlider relative w-[65%] max-w-4xl mx-auto h-[200px] sm:h-[200px] sm:mb-10 md:h-[250px] lg:h-[250px] px-4">
+        <div className="aboutImageSlider mt-5 relative w-[90%] h-[600px]  max-w-4xl mx-auto  sm:h-[200px] sm:mb-10 md:h-[250px] lg:h-[310px] px-4">
             <div className="w-full h-full rounded-lg shadow-lg overflow-hidden relative group">
                 {images.map((image, index) => (
                     <img
