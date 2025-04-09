@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import phone from '../assets/icons/phone.png';
 import email from '../assets/icons/email.png';
 import location from '../assets/icons/location.png';
@@ -11,6 +11,19 @@ import gallery5 from '../assets/images/gallery5.jpg';
 import gallery6 from '../assets/images/gallery6.jpg';
 
 const Footer = () => {
+    const [expandedSections, setExpandedSections] = useState({
+        quickLinks: false,
+        contactDetails: false,
+        gallery: false
+    });
+
+    const toggleSection = (section) => {
+        setExpandedSections(prev => ({
+            ...prev,
+            [section]: !prev[section]
+        }));
+    };
+
     // Social media data
     const socialMedia = [
         {
@@ -82,7 +95,7 @@ const Footer = () => {
         <footer className="footer bg-[var(--color-dark)] text-white">
             <div className="container mx-auto px-4 py-10 sm:pt-16 lg:pt-24">
                 <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4">
-                    {/* Company Info */}
+                    {/* Company Info - Always visible */}
                     <div className="sm:col-span-2 lg:col-span-1 flex flex-col items-center sm:items-start">
                         <img
                             className="w-auto h-9"
@@ -106,8 +119,47 @@ const Footer = () => {
                         </div>
                     </div>
 
-                    {/* Quick Links */}
-                    <div className="flex flex-col ml-7 items-center sm:items-start">
+                    {/* Quick Links - Accordion on mobile */}
+                    <div className="sm:hidden">
+                        <div className="transition-all duration-200 bg-transparent border border-gray-700 cursor-pointer hover:bg-gray-800 rounded-lg">
+                            <div>
+                                <button
+                                    type="button"
+                                    className="flex items-center justify-between w-full px-4 py-5 sm:p-6"
+                                    onClick={() => toggleSection('quickLinks')}
+                                >
+                                    <span className="flex text-lg font-semibold text-white">Quick links</span>
+                                    <svg
+                                        className={`w-6 h-6 text-gray-400 transform transition-transform duration-200 ${expandedSections.quickLinks ? 'rotate-180' : ''}`}
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        fill="none"
+                                        viewBox="0 0 24 24"
+                                        stroke="currentColor"
+                                    >
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+                                    </svg>
+                                </button>
+                                <div className={`${expandedSections.quickLinks ? 'block' : 'hidden'} px-4 pb-5 sm:px-6 sm:pb-6`}>
+                                    <ul className="space-y-3">
+                                        {quickLinks.map((link, index) => (
+                                            <li key={index}>
+                                                <a
+                                                    href={link.url}
+                                                    className="flex items-center text-base text-white hover:text-green-400 transition-colors duration-200"
+                                                >
+                                                    <img src={link.icon} className="w-4 h-4 mr-2" alt="" />
+                                                    {link.name}
+                                                </a>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Quick Links - Desktop view */}
+                    <div className="hidden sm:flex flex-col ml-7 items-center sm:items-start">
                         <h3 className="text-sm font-semibold tracking-widest text-gray-400 uppercase mb-4">
                             Quick Links
                         </h3>
@@ -126,8 +178,44 @@ const Footer = () => {
                         </ul>
                     </div>
 
-                    {/* Contact Details */}
-                    <div className="flex flex-col -ml-5 items-center sm:items-start">
+                    {/* Contact Details - Accordion on mobile */}
+                    <div className="sm:hidden">
+                        <div className="transition-all duration-200 bg-transparent border border-gray-700 cursor-pointer hover:bg-gray-800 rounded-lg">
+                            <div>
+                                <button
+                                    type="button"
+                                    className="flex items-center justify-between w-full px-4 py-5 sm:p-6"
+                                    onClick={() => toggleSection('contactDetails')}
+                                >
+                                    <span className="flex text-lg font-semibold text-white">Contact Details</span>
+                                    <svg
+                                        className={`w-6 h-6 text-gray-400 transform transition-transform duration-200 ${expandedSections.contactDetails ? 'rotate-180' : ''}`}
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        fill="none"
+                                        viewBox="0 0 24 24"
+                                        stroke="currentColor"
+                                    >
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+                                    </svg>
+                                </button>
+                                <div className={`${expandedSections.contactDetails ? 'block' : 'hidden'} px-4 pb-5 sm:px-6 sm:pb-6`}>
+                                    <ul className="space-y-3">
+                                        {contactDetails.map((contact, index) => (
+                                            <li key={index} className="flex items-start max-w-xs">
+                                                <img src={contact.icon} className="w-4 h-4 mt-1 mr-2 flex-shrink-0" alt="" />
+                                                <span className="text-base text-white transition-colors duration-200">
+                                                    {contact.value}
+                                                </span>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Contact Details - Desktop view */}
+                    <div className="hidden sm:flex flex-col -ml-5 items-center sm:items-start">
                         <h3 className="text-sm font-semibold tracking-widest text-gray-400 uppercase mb-4">
                             Contact Details
                         </h3>
@@ -136,15 +224,52 @@ const Footer = () => {
                                 <li key={index} className="flex items-start max-w-xs">
                                     <img src={contact.icon} className="w-4 h-4 mt-1 mr-2 flex-shrink-0" alt="" />
                                     <span className="text-base text-white transition-colors duration-200">
-                    {contact.value}
-                  </span>
+                                        {contact.value}
+                                    </span>
                                 </li>
                             ))}
                         </ul>
                     </div>
 
-                    {/* Gallery */}
-                    <div className="sm:col-span-2 lg:col-span-1 flex flex-col items-center sm:items-start">
+                    {/* Gallery - Accordion on mobile */}
+                    <div className="sm:hidden">
+                        <div className="transition-all duration-200 bg-transparent border border-gray-700 cursor-pointer hover:bg-gray-800 rounded-lg">
+                            <div>
+                                <button
+                                    type="button"
+                                    className="flex items-center justify-between w-full px-4 py-5 sm:p-6"
+                                    onClick={() => toggleSection('gallery')}
+                                >
+                                    <span className="flex text-lg font-semibold text-white">Gallery</span>
+                                    <svg
+                                        className={`w-6 h-6 text-gray-400 transform transition-transform duration-200 ${expandedSections.gallery ? 'rotate-180' : ''}`}
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        fill="none"
+                                        viewBox="0 0 24 24"
+                                        stroke="currentColor"
+                                    >
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+                                    </svg>
+                                </button>
+                                <div className={`${expandedSections.gallery ? 'block' : 'hidden'} px-4 pb-5 sm:px-6 sm:pb-6`}>
+                                    <div className="grid grid-cols-3 gap-3 w-full">
+                                        {galleryImages.map((image, index) => (
+                                            <img
+                                                key={index}
+                                                src={image.src}
+                                                alt={image.alt}
+                                                className="w-full h-20 object-cover rounded-lg hover:opacity-80 transition-opacity duration-200"
+                                                loading="lazy"
+                                            />
+                                        ))}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Gallery - Desktop view */}
+                    <div className="hidden sm:block sm:col-span-2 lg:col-span-1 flex flex-col items-center sm:items-start">
                         <h3 className="text-sm font-semibold tracking-widest text-gray-400 uppercase mb-4">
                             Gallery
                         </h3>
