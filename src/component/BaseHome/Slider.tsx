@@ -1,8 +1,8 @@
 import {useState, useEffect, useRef} from 'react'
-import company from '../models/Company'
+import company from '../../models/Company.tsx'
 import {motion, AnimatePresence} from 'framer-motion'
 import {ArrowLeftOutlined, ArrowRightOutlined} from '@ant-design/icons'
-import '../styles/slider.css'
+import '../../styles/slider.css'
 import {Link} from "react-router-dom";
 
 

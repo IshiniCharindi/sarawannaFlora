@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import Category, { CategoryInterface } from "../models/Category.tsx";
+import Category, { CategoryInterface } from "../../models/Category.tsx";
 import CategoryCard from "./CategoryCard.tsx";
 
 const manualCategories: Array<CategoryInterface> = [

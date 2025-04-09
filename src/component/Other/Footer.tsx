@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
-import phone from '../assets/icons/phone.png';
-import email from '../assets/icons/email.png';
-import location from '../assets/icons/location.png';
-import arrow from '../assets/icons/arrow (2).png';
-import gallery1 from '../assets/images/gallery1.jpg';
-import gallery2 from '../assets/images/gallery2.jpg';
-import gallery3 from '../assets/images/gallery3.jpg';
-import gallery4 from '../assets/images/gallery4.jpg';
-import gallery5 from '../assets/images/gallery5.jpg';
-import gallery6 from '../assets/images/gallery6.jpg';
+import phone from '../../assets/icons/phone.png';
+import email from '../../assets/icons/email.png';
+import location from '../../assets/icons/location.png';
+import arrow from '../../assets/icons/arrow (2).png';
+import gallery1 from '../../assets/images/gallery1.jpg';
+import gallery2 from '../../assets/images/gallery2.jpg';
+import gallery3 from '../../assets/images/gallery3.jpg';
+import gallery4 from '../../assets/images/gallery4.jpg';
+import gallery5 from '../../assets/images/gallery5.jpg';
+import gallery6 from '../../assets/images/gallery6.jpg';
 
 const Footer = () => {
     const [expandedSections, setExpandedSections] = useState({

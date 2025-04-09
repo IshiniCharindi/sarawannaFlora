@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import FlowerCard from "./FlowerCard";
+import FlowerCard from "./FlowerCard.tsx";
 import ShopFilterSideBar from "./ShopFilterSideBar.tsx";
 import { FiFilter, FiX } from "react-icons/fi"; // Import icons from react-icons
 

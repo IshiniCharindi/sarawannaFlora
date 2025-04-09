@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
-import sliderImage01 from "../assets/images/sliderImage01.jpg";
-import sliderImage02 from "../assets/images/sliderImage02.jpg";
-import sliderImage03 from "../assets/images/sliderImage03.jpg";
-import sliderImage04 from "../assets/images/sliderImage04.jpg";
-import  '../styles/AboutUsWelcomeSection.css'
+import sliderImage01 from "../../assets/images/sliderImage01.jpg";
+import sliderImage02 from "../../assets/images/sliderImage02.jpg";
+import sliderImage03 from "../../assets/images/sliderImage03.jpg";
+import sliderImage04 from "../../assets/images/sliderImage04.jpg";
+import  '../../styles/AboutUsWelcomeSection.css'
 
 const images = [sliderImage01, sliderImage02, sliderImage03, sliderImage04];
 

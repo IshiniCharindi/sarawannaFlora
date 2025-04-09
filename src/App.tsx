@@ -2,10 +2,12 @@ import {BrowserRouter, Route, Routes} from "react-router-dom";
 import BaseHome from "./features/BaseHome.tsx";
 import AdminBase from "./features/admin/AdminBase.tsx";
 import Shop from "./features/Shop.tsx";
-import Loading from "./component/Loading.tsx";
+import Loading from "./component/Other/Loading.tsx";
 import { useSelector } from 'react-redux'
 import { RootState } from './redux/store.tsx'
 import AboutUs from "./features/AboutUs.tsx";
+import ProductDetailView from "./features/ProductDetailView.tsx";
+import DescriptionEditor from "./features/admin/DescriptionEditor.tsx";
 
 function App() {
     const loading = useSelector((state: RootState) => state.loadingSlice)
@@ -21,6 +23,8 @@ function App() {
               <Route element={<Shop/>} path='/shop'/>
               <Route element={<AboutUs/>} path='/aboutus'/>
               <Route element={<AboutUs/>} path='/aboutus'/>
+              <Route element={<ProductDetailView/>} path='/p'/>
+              <Route element={<DescriptionEditor/>} path='/d'/>
 
               {/*<Route element={<AdminBase/>} path='/admin'/>*/}
               {/*<Route element={<AboutUs/>} path='/about'/>*/}

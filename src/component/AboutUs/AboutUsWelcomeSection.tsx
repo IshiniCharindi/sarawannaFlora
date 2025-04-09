@@ -1,4 +1,4 @@
-import '../styles/AboutUsWelcomeSection.css'
+import '../../styles/AboutUsWelcomeSection.css'
 import AboutImageSlider from "./AboutImageSlider.tsx";
 const AboutUsWelcomeSection = () => {
     return (

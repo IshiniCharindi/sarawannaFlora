@@ -1,11 +1,11 @@
-import Slider from "../component/Slider.tsx";
-import NavBar from "../component/NavBar.tsx";
-import BaseHomeCountDown from "../component/BaseHomeCountDown.tsx";
-import BaseHomeProduct from "../component/BaseHomeProduct.tsx";
-import BaseHomeWelcomeBanner from "../component/BaseHomeWelcomeBanner.tsx";
-import Footer from "../component/Footer.tsx";
-import CategoryCarousel from "../component/CategorySlider.tsx";
-import BaseHomeTopBanner from "../component/BaseHomeTopBanner.tsx";
+import Slider from "../component/BaseHome/Slider.tsx";
+import NavBar from "../component/Other/NavBar.tsx";
+import BaseHomeCountDown from "../component/BaseHome/BaseHomeCountDown.tsx";
+import BaseHomeProduct from "../component/BaseHome/BaseHomeProduct.tsx";
+import BaseHomeWelcomeBanner from "../component/BaseHome/BaseHomeWelcomeBanner.tsx";
+import Footer from "../component/Other/Footer.tsx";
+import CategoryCarousel from "../component/BaseHome/CategorySlider.tsx";
+import BaseHomeTopBanner from "../component/BaseHome/BaseHomeTopBanner.tsx";
 
 
 const BaseHome = () => {

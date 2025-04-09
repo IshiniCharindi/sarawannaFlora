@@ -1,4 +1,4 @@
-import topBannerVideo from "../assets/videos/baseHomeTopBanner.mp4"
+import topBannerVideo from "../../assets/videos/baseHomeTopBanner.mp4"
 import {Link} from "react-router-dom";
 const BaseHomeTopBanner = () => {
     return (

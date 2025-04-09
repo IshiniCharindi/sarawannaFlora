@@ -1,4 +1,4 @@
-import aboutVideo from "../assets/videos/aboutUsBannerVideo.mp4"
+import aboutVideo from "../../assets/videos/aboutUsBannerVideo.mp4"
 import {Link} from "react-router-dom";
 const AboutUsMiddleBanner = () => {
     return (
