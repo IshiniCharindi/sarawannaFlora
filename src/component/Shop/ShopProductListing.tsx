@@ -105,7 +105,7 @@ const ShopProductListing: React.FC = () => {
     const [priceRange, setPriceRange] = useState<[number, number]>([0, 5000]);
     const [sortBy, setSortBy] = useState<string>("bestMatch");
     const [currentPage, setCurrentPage] = useState<number>(1);
-    const [isSidebarOpen, setIsSidebarOpen] = useState(false); // New state for mobile sidebar
+    const [isSidebarOpen, setIsSidebarOpen] = useState(false);
     const productsPerPage = 4;
 
     // Get unique categories
@@ -191,24 +191,25 @@ const ShopProductListing: React.FC = () => {
 
             <div className="flex flex-col md:flex-row gap-8 relative">
                 {/* Sidebar with mobile responsiveness */}
-                <div className={`${isSidebarOpen ? 'block' : 'hidden'} md:block fixed md:static inset-0 z-50 md:z-auto bg-black bg-opacity-50 md:bg-transparent`}>
+                {isSidebarOpen && (
                     <div
-                        className={`absolute md:relative left-0 top-0 h-full md:h-auto w-64 bg-white p-4 transform transition-transform duration-300 ease-in-out ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'} md:translate-x-0`}
-                    >
-                        <ShopFilterSideBar
-                            categories={categories}
-                            selectedCategories={selectedCategories}
-                            priceRange={priceRange}
-                            onCategoryToggle={handleCategoryToggle}
-                            onPriceChange={handlePriceChange}
-                        />
-                    </div>
-                    {isSidebarOpen && (
-                        <div
-                            className="md:hidden fixed inset-0 z-40 bg-black bg-opacity-50"
-                            onClick={toggleSidebar}
-                        ></div>
-                    )}
+                        className="fixed inset-0 z-40  bg-opacity-50 md:hidden"
+                        onClick={toggleSidebar}
+                    ></div>
+                )}
+
+                <div
+                    className={`fixed md:static inset-y-0 left-0 z-50 md:z-auto w-64 bg-white p-4 transform transition-transform duration-300 ease-in-out ${
+                        isSidebarOpen ? 'translate-x-0' : '-translate-x-full'
+                    } md:translate-x-0`}
+                >
+                    <ShopFilterSideBar
+                        categories={categories}
+                        selectedCategories={selectedCategories}
+                        priceRange={priceRange}
+                        onCategoryToggle={handleCategoryToggle}
+                        onPriceChange={handlePriceChange}
+                    />
                 </div>
 
                 <div className="flex-1">
