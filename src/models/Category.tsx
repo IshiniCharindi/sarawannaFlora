@@ -1,7 +1,7 @@
-import uploadImageFireStorage, { deleteFirebaseImage } from "../middleware/firebaseImageUpload"
-import { createCategoryQuery, deleteCategoryQuery, updateCategoryQuery } from "../services/productQuery"
-import { loadCategoriesQuery } from "../services/productQuery"
-import {v4} from 'uuid'
+// import uploadImageFireStorage, { deleteFirebaseImage } from "../middleware/firebaseImageUpload"
+// import { createCategoryQuery, deleteCategoryQuery, updateCategoryQuery } from "../services/productQuery"
+// import { loadCategoriesQuery } from "../services/productQuery"
+// import {v4} from 'uuid'
 
 interface CategoryInterface {
     categoryID?: string

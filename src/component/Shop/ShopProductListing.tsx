@@ -1,103 +1,117 @@
 import React, { useState } from "react";
 import FlowerCard from "./FlowerCard.tsx";
 import ShopFilterSideBar from "./ShopFilterSideBar.tsx";
-import { FiFilter, FiX } from "react-icons/fi"; // Import icons from react-icons
+import { FiFilter, FiX } from "react-icons/fi";
+import {ProductInterface} from "../../models/Product.tsx";
 
-interface Product {
-    id: number;
-    name: string;
-    rating: number;
-    price: number;
-    sold: number;
-    region: string;
-    category: string;
-    imageUrl: string;
-}
 
 const ShopProductListing: React.FC = () => {
-    // Sample product data
-    const allProducts: Product[] = [
-        {
-            id: 1,
-            name: "Red Roses Bouquet",
-            rating: 4,
-            price: 1200,
-            sold: 93,
-            region: "Western",
-            category: "Fresh Flowers",
-            imageUrl: "https://images.unsplash.com/photo-1597826368522-9f4cb5a6ba48?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
-        },
-        {
-            id: 2,
-            name: "Lavender Arrangement",
-            rating: 5,
-            price: 1500,
-            sold: 45,
-            region: "Central",
-            category: "Dried Flowers",
-            imageUrl: "https://images.unsplash.com/photo-1526397751294-331021109fbd?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
-        },
-        {
-            id: 3,
-            name: "Mixed Seasonal Flowers",
-            rating: 3,
-            price: 1800,
-            sold: 28,
-            region: "Western",
-            category: "Fresh Flowers",
-            imageUrl: "https://images.unsplash.com/photo-1455659817273-f96807779a8a?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
-        },
-        {
-            id: 4,
-            name: "Orchid Plant",
-            rating: 4,
-            price: 2500,
-            sold: 67,
-            region: "Eastern",
-            category: "Plants",
-            imageUrl: "https://images.unsplash.com/photo-1562690868-60bbe7293e94?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
-        },
-        {
-            id: 5,
-            name: "Sunflower Bouquet",
-            rating: 5,
-            price: 1600,
-            sold: 112,
-            region: "Western",
-            category: "Fresh Flowers",
-            imageUrl: "https://images.unsplash.com/photo-1597826368522-9f4cb5a6ba48?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
-        },
-        {
-            id: 6,
-            name: "Tulip Arrangement",
-            rating: 4,
-            price: 2200,
-            sold: 34,
-            region: "Central",
-            category: "Fresh Flowers",
-            imageUrl: "https://images.unsplash.com/photo-1526397751294-331021109fbd?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
-        },
-        {
-            id: 7,
-            name: "Succulent Set",
-            rating: 5,
-            price: 1900,
-            sold: 89,
-            region: "North Western",
-            category: "Plants",
-            imageUrl: "https://images.unsplash.com/photo-1455659817273-f96807779a8a?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
-        },
-        {
-            id: 8,
-            name: "Dried Lavender Bundle",
-            rating: 4,
-            price: 1300,
-            sold: 56,
-            region: "Western",
-            category: "Dried Flowers",
-            imageUrl: "https://images.unsplash.com/photo-1562690868-60bbe7293e94?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
-        },
 
+    const allProducts: ProductInterface[] = [
+        {
+            product_id: "1",
+            tittle: "Red Roses Bouquet",
+            stock: true,
+            top_item: true,
+            cat_id: "1", // You can assign appropriate category IDs
+            description: "A beautiful bouquet of fresh red roses.",
+            unit_price: 1200,
+            category: "Fresh Flowers",
+            unit_measured: "Bouquet",
+            coverImageLink: "https://images.unsplash.com/photo-1597826368522-9f4cb5a6ba48?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
+            rawImage: null, // Add image file or null if no image is provided yet
+        },
+        {
+            product_id: "2",
+            tittle: "Lavender Arrangement",
+            stock: true,
+            top_item: false,
+            cat_id: "2",
+            description: "A calming lavender arrangement perfect for any setting.",
+            unit_price: 1500,
+            category: "Dried Flowers",
+            unit_measured: "Arrangement",
+            coverImageLink: "https://images.unsplash.com/photo-1526397751294-331021109fbd?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
+            rawImage: null,
+        },
+        {
+            product_id: "3",
+            tittle: "Mixed Seasonal Flowers",
+            stock: true,
+            top_item: false,
+            cat_id: "3",
+            description: "A delightful mix of seasonal flowers to brighten your space.",
+            unit_price: 1800,
+            category: "Fresh Flowers",
+            unit_measured: "Arrangement",
+            coverImageLink: "https://images.unsplash.com/photo-1455659817273-f96807779a8a?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
+            rawImage: null,
+        },
+        {
+            product_id: "4",
+            tittle: "Orchid Plant",
+            stock: true,
+            top_item: true,
+            cat_id: "4",
+            description: "A stunning orchid plant for a touch of elegance.",
+            unit_price: 2500,
+            category: "Plants",
+            unit_measured: "Plant",
+            coverImageLink: "https://images.unsplash.com/photo-1562690868-60bbe7293e94?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
+            rawImage: null,
+        },
+        {
+            product_id: "5",
+            tittle: "Sunflower Bouquet",
+            stock: true,
+            top_item: true,
+            cat_id: "1",
+            description: "A bright and cheerful sunflower bouquet to bring warmth to any space.",
+            unit_price: 1600,
+            category: "Fresh Flowers",
+            unit_measured: "Bouquet",
+            coverImageLink: "https://images.unsplash.com/photo-1597826368522-9f4cb5a6ba48?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
+            rawImage: null,
+        },
+        {
+            product_id: "6",
+            tittle: "Tulip Arrangement",
+            stock: true,
+            top_item: false,
+            cat_id: "1",
+            description: "A beautiful arrangement of fresh tulips.",
+            unit_price: 2200,
+            category: "Fresh Flowers",
+            unit_measured: "Arrangement",
+            coverImageLink: "https://images.unsplash.com/photo-1526397751294-331021109fbd?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
+            rawImage: null,
+        },
+        {
+            product_id: "7",
+            tittle: "Succulent Set",
+            stock: true,
+            top_item: true,
+            cat_id: "5",
+            description: "A set of cute succulents for your home or office.",
+            unit_price: 1900,
+            category: "Plants",
+            unit_measured: "Set",
+            coverImageLink: "https://images.unsplash.com/photo-1455659817273-f96807779a8a?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
+            rawImage: null,
+        },
+        {
+            product_id: "8",
+            tittle: "Dried Lavender Bundle",
+            stock: true,
+            top_item: false,
+            cat_id: "2",
+            description: "A bundle of dried lavender for a soothing aroma.",
+            unit_price: 1300,
+            category: "Dried Flowers",
+            unit_measured: "Bundle",
+            coverImageLink: "https://images.unsplash.com/photo-1562690868-60bbe7293e94?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
+            rawImage: null,
+        }
     ];
 
     // State management
@@ -116,16 +130,14 @@ const ShopProductListing: React.FC = () => {
         .filter(product => {
             const categoryMatch = selectedCategories.length === 0 ||
                 selectedCategories.includes(product.category);
-            const priceMatch = product.price >= priceRange[0] &&
-                product.price <= priceRange[1];
+            const priceMatch = product.unit_price >= priceRange[0] &&
+                product.unit_price <= priceRange[1];
             return categoryMatch && priceMatch;
         })
         .sort((a, b) => {
             switch (sortBy) {
-                case "priceLowHigh": return a.price - b.price;
-                case "priceHighLow": return b.price - a.price;
-                case "bestSelling": return b.sold - a.sold;
-                case "topRated": return b.rating - a.rating;
+                case "priceLowHigh": return a.unit_price - b.unit_price;
+                case "priceHighLow": return b.unit_price - a.unit_price;
                 default: return 0;
             }
         });
@@ -237,13 +249,12 @@ const ShopProductListing: React.FC = () => {
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-8">
                         {currentProducts.map(product => (
                             <FlowerCard
-                                key={product.id}
-                                id={product.id}
-                                name={product.name}
-                                rating={product.rating}
-                                price={product.price}
-                                sold={product.sold}
-                                imageUrl={product.imageUrl}
+                                key={product.product_id}
+                                id={product.product_id ?? "default-id"}
+                                name={product.tittle}
+                                category={product.category}
+                                price={product.unit_price}
+                                imageUrl={product.coverImageLink}
                             />
                         ))}
                     </div>

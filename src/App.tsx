@@ -23,6 +23,9 @@ function App() {
               <Route element={<AdminBase/>} path='/admin'/>
               <Route element={<Shop/>} path='/shop'/>
               <Route element={<AboutUs/>} path='/aboutus'/>
+              <Route element={<AboutUs/>} path='/aboutus'/>
+              <Route path="/product/details/:id" element={<ProductDetailView />} />
+
               <Route element={<ContactUs/>} path='/contactus'/>
               <Route element={<Login/>} path='/login'/>
 

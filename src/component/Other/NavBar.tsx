@@ -52,9 +52,6 @@ const NavBar = () => {
                         <Link to="/cart">
                             <img src={cart} alt="Cart" className="w-5 h-5"/>
                         </Link>
-                        <Link to="/login">
-                            <img src={login} alt="Login" className="w-5 h-5"/>
-                        </Link>
                     </div>
 
                     {/* Desktop menu */}
