@@ -9,12 +9,12 @@ interface FilterSidebarProps {
 }
 
 const ShopFilterSideBar: React.FC<FilterSidebarProps> = ({
-                                                         categories,
-                                                         selectedCategories,
-                                                         priceRange,
-                                                         onCategoryToggle,
-                                                         onPriceChange
-                                                     }) => {
+                                                             categories,
+                                                             selectedCategories,
+                                                             priceRange,
+                                                             onCategoryToggle,
+                                                             onPriceChange
+                                                         }) => {
     return (
         <div className="w-full md:w-64 flex-shrink-0">
             <div className="bg-white p-4 rounded-lg shadow-md sticky top-4">
@@ -41,7 +41,7 @@ const ShopFilterSideBar: React.FC<FilterSidebarProps> = ({
                 {/* Price Filter */}
                 <div>
                     <h3 className="font-semibold text-lg mb-3">Price Range</h3>
-                    <div className="mb-2">
+                    <div className="mb-2 space-y-4">
                         <input
                             type="range"
                             min="0"
@@ -49,7 +49,7 @@ const ShopFilterSideBar: React.FC<FilterSidebarProps> = ({
                             step="100"
                             value={priceRange[0]}
                             onChange={(e) => onPriceChange(Number(e.target.value), priceRange[1])}
-                            className="w-full"
+                            className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:h-4 [&::-webkit-slider-thumb]:w-4 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-green-700"
                         />
                         <input
                             type="range"
@@ -58,7 +58,7 @@ const ShopFilterSideBar: React.FC<FilterSidebarProps> = ({
                             step="100"
                             value={priceRange[1]}
                             onChange={(e) => onPriceChange(priceRange[0], Number(e.target.value))}
-                            className="w-full"
+                            className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:h-4 [&::-webkit-slider-thumb]:w-4 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-green-700"
                         />
                     </div>
                     <div className="flex justify-between text-sm text-gray-600">

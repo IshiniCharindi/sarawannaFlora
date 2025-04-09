@@ -157,8 +157,20 @@ const ShopProductListing: React.FC = () => {
     return (
         <div className="container mx-auto px-4 py-8">
             <div className="mb-8">
-                <h1 className="text-3xl font-bold text-gray-800 mb-2">Flower Arrangements</h1>
-                <p className="text-gray-600">{filteredProducts.length} items found</p>
+                <h1 style={{fontFamily: 'Raleway, sans-serif'}}
+                    className="text-center font-thin max-[350px]:text-xl text-2xl sm:text-3xl md:text-4xl lg:text-5xl min-2xl:text-6xl"> Our
+                    Products</h1>
+                <div className="flex justify-center items-center">
+                    <p className="text-center text-gray-400 relative inline-block leading-[3] tracking-[4px]">
+                        what we offer
+                        <span
+                            className="absolute left-1/2 mt-5 transform -translate-x-1/2 bottom-0 w-[55px] h-[2px] bg-[var(--color-primary)]"></span>
+                    </p>
+
+                </div>
+                <div>
+                    <p className="text-gray-600">{filteredProducts.length} items found</p>
+                </div>
             </div>
 
             <div className="flex flex-col md:flex-row gap-8">
@@ -222,7 +234,7 @@ const ShopProductListing: React.FC = () => {
                                     <button
                                         key={page}
                                         onClick={() => setCurrentPage(page)}
-                                        className={`px-3 py-1 rounded ${currentPage === page ? 'bg-green-500 text-white' : 'border border-gray-300'}`}
+                                        className={`px-3 py-1 rounded ${currentPage === page ? 'bg-green-700 text-white' : 'border border-gray-300'}`}
                                     >
                                         {page}
                                     </button>
