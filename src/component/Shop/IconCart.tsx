@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { ShoppingCart, Heart, X, Plus, Minus } from 'lucide-react';
+import {Link} from "react-router-dom";
 
 type FlowerItem = {
     id: number;
@@ -9,7 +10,7 @@ type FlowerItem = {
     quantity: number;
 };
 
-const Cart = () => {
+const IconCart = () => {
     const [isCartOpen, setIsCartOpen] = useState(false);
     const [cartItems, setCartItems] = useState<FlowerItem[]>([
         {
@@ -46,7 +47,7 @@ const Cart = () => {
 
     return (
         <div className="fixed bottom-6 right-6 z-50">
-            {/* Cart Button */}
+            {/* IconCart Button */}
             <button
                 onClick={() => setIsCartOpen(!isCartOpen)}
                 className="relative p-4 bg-pink-500 hover:bg-pink-600 rounded-full shadow-lg transition-all duration-300 transform hover:scale-110"
@@ -59,7 +60,7 @@ const Cart = () => {
                 )}
             </button>
 
-            {/* Cart Dropdown */}
+            {/* IconCart Dropdown */}
             {isCartOpen && (
                 <div className="absolute bottom-16 right-0 w-80 bg-white rounded-lg shadow-xl overflow-hidden transition-all duration-300">
                     <div className="bg-gradient-to-r from-pink-500 to-rose-500 p-4 text-white">
@@ -72,7 +73,7 @@ const Cart = () => {
                         <p className="text-sm opacity-90">{totalItems} item(s)</p>
                     </div>
 
-                    {/* Cart Items */}
+                    {/* IconCart Items */}
                     <div className="max-h-96 overflow-y-auto">
                         {cartItems.length === 0 ? (
                             <div className="p-6 text-center text-gray-500">
@@ -111,12 +112,15 @@ const Cart = () => {
                                                         <Minus className="h-3 w-3" />
                                                     </button>
                                                     <span className="mx-2 text-sm text-gray-700">{item.quantity}</span>
-                                                    <button
-                                                        onClick={() => updateQuantity(item.id, item.quantity + 1)}
-                                                        className="text-gray-500 hover:text-pink-600 p-1"
-                                                    >
-                                                        <Plus className="h-3 w-3" />
-                                                    </button>
+                                                    <Link to={"/product/details/cart"}>
+                                                        <button
+                                                            onClick={() => updateQuantity(item.id, item.quantity + 1)}
+                                                            className="text-gray-500 hover:text-pink-600 p-1"
+                                                        >
+                                                            <Plus className="h-3 w-3"/>
+                                                        </button>
+                                                    </Link>
+
                                                 </div>
                                             </div>
                                         </div>
@@ -126,7 +130,7 @@ const Cart = () => {
                         )}
                     </div>
 
-                    {/* Cart Footer */}
+                    {/* IconCart Footer */}
                     {cartItems.length > 0 && (
                         <div className="border-t border-gray-200 p-4">
                             <div className="flex justify-between text-base font-medium text-gray-900 mb-4">
@@ -149,4 +153,4 @@ const Cart = () => {
     );
 };
 
-export default Cart;
+export default IconCart;
