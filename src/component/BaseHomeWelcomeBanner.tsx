@@ -1,28 +1,28 @@
 import welcomeImage from '../assets/images/WelcomeBannerImage.jpg';
 import {Link} from "react-router-dom";
-import React from "react";
 
 const BaseHomeWelcomeBanner = () => {
     return (
         <div className="baseHomeWelcomeBanner !bg-white mx-5 mb-20">
-            <section className="">
+            <h1 style={{fontFamily: 'Raleway, sans-serif'}}
+                className="text-center font-thin max-[350px]:text-xl text-2xl sm:text-3xl md:text-4xl lg:text-5xl min-2xl:text-6xl"> Our Services</h1>
+            <div className="flex justify-center items-center">
+                <p className="text-center text-gray-400 relative inline-block leading-[3] tracking-[4px]">
+                    Our Services
+                    <span
+                        className="absolute left-1/2 mt-5 transform -translate-x-1/2 bottom-0 w-[55px] h-[2px] bg-[var(--color-primary)]"></span>
+                </p>
+            </div>
+            <section className="mt-4">
                 <div className="px-4 mx-3 sm:px-6 lg:px-12 xl:px-4 2xl:px-17 ">
                     <div className="grid items-center grid-cols-1 md:grid-cols-2">
                         <div>
                             <h2
-                                className="max-md:text-center text-[var(--color-primary)] font-bold text-4xl md:text-5xl xl:text-6xl min-2xl:text-6xl"
+                                className="max-md:text-center text-[var(--color-primary)] font-bold text-4xl"
                                 style={{fontFamily: "Times New Roman, serif", lineHeight: "1.3"}}
                             >
-                                Our Services
+                                Lorem ipsum dolor sit amet, consectetur adipisicing.
                             </h2>
-
-                            <div className="flex justify-center items-center md:justify-start md:items-start md:mx-10 xl:mx-20">
-                                <p className="text-center text-xs md:text-base text-gray-400 relative inline-block leading-[3] tracking-[4px]">
-                                    what we offer
-                                    <span
-                                        className="absolute left-1/2 mt-5 transform -translate-x-1/2 bottom-0 w-[55px] h-[2px] bg-[var(--color-primary)]"></span>
-                                </p>
-                            </div>
 
                             <p className="max-w-2xl mt-3  font-thin leading-relaxed text-gray-700 md:mt-8 text-base md:text-lg lg:text-lg min-[1900px]:text-xl">
                                 We connect businesses to international markets with seamless export solutions. With our

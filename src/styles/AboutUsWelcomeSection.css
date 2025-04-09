@@ -1,0 +1,5 @@
+.aboutUsWelcomeSection{
+    background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url("../assets/images/aboutBg.jpg");
+    background-size: cover;
+    background-position: center top 31%;
+}

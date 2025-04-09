@@ -11,7 +11,7 @@ const NavBar = () => {
     };
 
     return (
-        <header className="bg-[var(--color-primary)]">
+        <header className="bg-[var(--color-primary)] fixed top-0 left-0 w-full z-50 shadow-md">
             <div className="px-4 mx-auto sm:px-6 lg:px-8">
                 <nav className="flex items-center justify-between h-14 lg:h-17">
                     <div className="flex-shrink-0">
@@ -57,35 +57,40 @@ const NavBar = () => {
                         </Link>
                     </div>
 
-
                     {/* Desktop menu */}
                     <div className="hidden lg:flex space-x-10 text-white">
-                        <a href="#">Features</a>
-                        <a href="#">Solutions</a>
-                        <a href="#">Resources</a>
-                        <a href="#">Pricing</a>
+                        <Link to={"/"}>Home</Link>
+                        <Link to={"/shop"}>Shop</Link>
+                        <Link to={"/Aboutus"}>About Us</Link>
+                        <Link to={"/contactus"}>Contact US</Link>
+
                     </div>
 
                     {/* Desktop Icons */}
                     <div className="hidden lg:flex space-x-4">
-                        <Link to="/cart"><img src={cart} alt="Cart" className="w-5 h-5"/></Link>
-                        <Link to="/login"><img src={login} alt="Login" className="w-5 h-5"/></Link>
+                        <Link to="/cart">
+                            <img src={cart} alt="Cart" className="w-5 h-5"/>
+                        </Link>
+                        <Link to="/login">
+                            <img src={login} alt="Login" className="w-5 h-5"/>
+                        </Link>
                     </div>
                 </nav>
             </div>
 
             {/* Mobile menu */}
             {isMobileMenuOpen && (
-                <div className="lg:hidden px-4 py-6 bg-[var(--color-secondary)] text-white space-y-4">
+                <div className="lg:hidden px-4 py-6 bg-[var(--color-secondary)] text-white space-y-4 shadow-md">
                     <div className="flex flex-col space-y-4 items-center justify-center">
-                        <a href="#">Features</a>
-                        <a href="#">Solutions</a>
-                        <a href="#">Resources</a>
-                        <a href="#">Pricing</a>
+                        <Link to={"/"}>Home</Link>
+                        <Link to={"/shop"}>Shop</Link>
+                        <Link to={"/Aboutus"}>About Us</Link>
+                        <Link to={"/contactus"}>Contact US</Link>
                     </div>
                 </div>
             )}
         </header>
+
     );
 };
 
