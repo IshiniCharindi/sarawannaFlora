@@ -8,6 +8,7 @@ import { RootState } from './redux/store.tsx'
 import AboutUs from "./features/AboutUs.tsx";
 import ProductDetailView from "./features/ProductDetailView.tsx";
 import ContactUs from "./features/admin/ContactUs.tsx";
+import Login from "./features/Login.tsx";
 
 function App() {
     const loading = useSelector((state: RootState) => state.loadingSlice)
@@ -23,6 +24,7 @@ function App() {
               <Route element={<Shop/>} path='/shop'/>
               <Route element={<AboutUs/>} path='/aboutus'/>
               <Route element={<ContactUs/>} path='/contactus'/>
+              <Route element={<Login/>} path='/login'/>
 
               <Route element={<ProductDetailView/>} path='/p'/>
 
