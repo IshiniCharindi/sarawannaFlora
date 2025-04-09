@@ -8,8 +8,22 @@ body {
 
 }
 
+.form-row {
+    @apply w-full flex flex-row justify-start mb-2 max-w-[1300px]
+}
 
 
+.row {
+    @apply flex flex-row justify-center items-center;
+}
+
+.column {
+    @apply flex flex-col justify-center items-center;
+}
+
+.full-box {
+    @apply flex flex-1 w-full h-full justify-center items-center;
+}
 
 :root {
     --color-primary: #117748; /* Tailwind blue-500 */

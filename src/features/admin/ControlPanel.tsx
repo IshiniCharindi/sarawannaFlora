@@ -1,18 +1,38 @@
-import React from 'react'
+import React, {useEffect, useRef} from 'react'
 import {motion} from 'framer-motion'
 import companyLogo from '../../assets/logo/company-logo.png'
 import {MdOutlineAddChart, MdManageHistory, MdOutlineSettings  } from 'react-icons/md'
 import {AiTwotoneContainer } from 'react-icons/ai'
 import {CgLogOut } from 'react-icons/cg'
+import { useSelector } from 'react-redux'
+import { RootState } from '../../redux/store'
+import { selfCloser } from '../../middleware/responsive'
 
-export default function ControlPanel() {
+export default function ControlPanel(props: any) {
+  const mobileView = useSelector((state: RootState) => state.mobileSlice)
+
+  const panelRef = useRef<HTMLDivElement>(null)
+  useEffect(() => {
+    if (mobileView) {
+      window.addEventListener('mousedown', (e) => selfCloser(e, panelRef, () => {
+        props.setPanelOpen(false)
+      }))
+      return(() => {
+        window.removeEventListener('mousedown', (e) => selfCloser(e, panelRef, () => {
+          props.setPanelOpen(false)
+        }))
+      })
+    }
+  }, []) 
+
   return (
     <motion.div 
+    ref={panelRef}
     initial={{x: -300}}
     animate={{x: 0}}
     exit={{x: -300}}
     transition={{stiffness: 20, mass: 0.5, duration: 0.2}}
-    className='h-screen w-[300px] bg-[#101A33] drop-shadow-lg flex flex-col justify-between items-center'>
+    className={`h-screen w-[300px] z-20 bg-[#101A33] drop-shadow-lg flex flex-col justify-between items-center ${mobileView ? 'fixed max-w-[80%]': ''}`}>
         <div className='flex-column justify-center items-center'>
         <h1 className="heading text-white pt-4 font-bold text-3xl ">Saravana Floral</h1>
         <h3 className='text-white font-bold text-center'>CONTROL PANEL</h3>
