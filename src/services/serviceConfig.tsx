@@ -20,7 +20,7 @@ const headers = {
 
 const fileUploadHeaders = {
     headers: {
-        'Content-Type': 'multipart/form-data',
+  
         'Accept': 'application/json',
     }
 }

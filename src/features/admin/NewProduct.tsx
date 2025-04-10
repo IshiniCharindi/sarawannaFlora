@@ -33,10 +33,8 @@ export default function NewProduct() {
 
   // upload the image list
   const uploadImageList = async () => {
-    await uploadImageRequest(fileList.map((file) => file.originFileObj as FileType))
-      .then((res) => {
-        console.log(res)
-      })
+    const response = await uploadImageRequest(fileList[0])
+    console.log(response)
   }
 
   return (
