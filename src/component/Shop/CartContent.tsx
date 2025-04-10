@@ -1,21 +1,14 @@
 import { Link } from 'react-router-dom';
 import { ArrowLeft, Heart, X, Plus, Minus, ShoppingCart } from 'lucide-react';
 import {useState} from "react";
+import {CartInterface} from "../../models/Cart.tsx";
 
-type FlowerItem = {
-    id: number;
-    name: string;
-    price: number;
-    image: string;
-    quantity: number;
-    inStock: boolean;
-};
 
 const CartContent = () => {
-    const [cartItems, setCartItems] = useState<FlowerItem[]>([
+    const [cartItems, setCartItems] = useState<CartInterface[]>([
         {
             id: 1,
-            name: 'Premium Rose Bouquet',
+            tittle: 'Premium Rose Bouquet',
             price: 39.99,
             image: 'https://images.unsplash.com/photo-1526047932273-341f2a7631f9',
             quantity: 1,
@@ -23,7 +16,7 @@ const CartContent = () => {
         },
         {
             id: 2,
-            name: 'Spring Tulip Arrangement',
+            tittle: 'Spring Tulip Arrangement',
             price: 34.99,
             image: 'https://images.unsplash.com/photo-1526397751294-331021109fbd',
             quantity: 2,
@@ -31,7 +24,7 @@ const CartContent = () => {
         },
         {
             id: 3,
-            name: 'Luxury Orchid Plant',
+            tittle: 'Luxury Orchid Plant',
             price: 49.99,
             image: 'https://images.unsplash.com/photo-1517848568502-d03fa74e1964',
             quantity: 1,
@@ -110,14 +103,14 @@ const CartContent = () => {
                                                 <div className="flex-shrink-0 mb-4 sm:mb-0">
                                                     <img
                                                         src={item.image}
-                                                        alt={item.name}
+                                                        alt={item.tittle}
                                                         className="w-32 h-32 rounded-lg object-cover object-center"
                                                     />
                                                 </div>
 
                                                 <div className="ml-0 sm:ml-6 flex-1">
                                                     <div className="flex justify-between">
-                                                        <h3 className="text-lg font-medium text-gray-900">{item.name}</h3>
+                                                        <h3 className="text-lg font-medium text-gray-900">{item.tittle}</h3>
                                                         <button
                                                             onClick={() => removeItem(item.id)}
                                                             className="text-gray-400 hover:text-rose-500"
@@ -144,8 +137,8 @@ const CartContent = () => {
                                                                 <Minus className="h-4 w-4" />
                                                             </button>
                                                             <span className="px-3 py-1 text-sm text-gray-700">
-                                {item.quantity}
-                              </span>
+                                                                {item.quantity}
+                                                            </span>
                                                             <button
                                                                 onClick={() => updateQuantity(item.id, item.quantity + 1)}
                                                                 className="px-3 py-1 text-gray-600 hover:text-pink-600"
