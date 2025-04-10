@@ -70,7 +70,7 @@ const CartContent = () => {
 
                 {/* Back to shopping link */}
                 <Link
-                    to="/flowers"
+                    to="/shop"
                     className="inline-flex items-center text-[var(--color-primary)] hover:text-[var(--color-secondary)] mb-6"
                 >
                     <ArrowLeft className="h-4 w-4 mr-1" />
