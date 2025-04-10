@@ -5,22 +5,22 @@ const ContactForm = () => {
     return (
         <div className="contactForm">
             <section className="relative  py-16 sm:py-20 lg:py-28">
-                <div
-                    className="relative px-6 py-12 sm:p-12"
-                    style={{
-                        backgroundImage: `url(${ContactFormBg})`,
-                        backgroundSize: 'cover',
-                        backgroundPosition: 'center',
-                        backgroundAttachment: 'fixed'
-                    }}
-                >
+                {/*<div*/}
+                {/*    className="relative px-6 py-12 sm:p-12"*/}
+                {/*    style={{*/}
+                {/*        backgroundImage: `url(${ContactFormBg})`,*/}
+                {/*        backgroundSize: 'cover',*/}
+                {/*        backgroundPosition: 'center',*/}
+                {/*        backgroundAttachment: 'fixed'*/}
+                {/*    }}*/}
+                {/*>*/}
                 {/* Background only for the form container */}
                 <div className="relative z-10 px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl">
                     <div className="overflow-hidden p-10 rounded-2xl">
                         {/* Background image container for the form */}
 
                             {/* Dark overlay for better readability */}
-                            <div className="absolute inset-0 bg-black rounded-2xl opacity-1"></div>
+                            <div className="absolute inset-0 bg-black rounded-2xl opacity-10"></div>
 
                             {/* Form content with relative positioning */}
                             <div className="relative z-10">
@@ -100,7 +100,7 @@ const ContactForm = () => {
                             </div>
                         </div>
                     </div>
-                </div>
+
             </section>
         </div>
     );
