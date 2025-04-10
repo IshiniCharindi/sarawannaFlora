@@ -24,7 +24,7 @@ const ContactUsMap = () => {
                     className="w-[95%] h-full mx-auto"
                     title="Google Maps Location"
                     frameBorder="0"
-                    style={{ border: '4px solid black' }}
+                    style={{ border: '4px ' }}
                     src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyCFC2E2leU5S82fWnQqaYNsT6Kay97SPe8&q=${encodedAddress}`}
                     allowFullScreen
                 >
