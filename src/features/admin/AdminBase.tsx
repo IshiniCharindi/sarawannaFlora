@@ -27,13 +27,13 @@ export default function AdminBase() {
   }, [mobileView])
 
   return (
-    <div className='screen flex-row !justify-start'>
+    <div className='screen flex-row !justify-start h-[100vh] overflow-hidden'>
         <AnimatePresence>
         {panelOpen && <ControlPanel setPanelOpen={setPanelOpen}/>}
         </AnimatePresence>
 
 
-        <div className="content flex-1 items-center flex flex-col">
+        <div className="content flex-1 items-center flex flex-col overflow-auto">
           
             <div className="top-bar w-full h-fit p-4 flex flex-row justify-between items-center">
               <div className="flex flex-row item-center">
