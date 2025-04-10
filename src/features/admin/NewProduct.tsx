@@ -3,6 +3,7 @@ import { Form, Input, Select, Checkbox, Upload, Button, Row, Col } from 'antd'
 import type { GetProp, UploadFile, UploadProps } from 'antd';
 import ImgCrop from 'antd-img-crop';
 import { Editor, EditorTextChangeEvent } from "primereact/editor";
+import { uploadImageRequest } from '../../services/productRequests';
 
 type FileType = Parameters<GetProp<UploadProps, 'beforeUpload'>>[0];
 export default function NewProduct() {
@@ -29,8 +30,17 @@ export default function NewProduct() {
     imgWindow?.document.write(image.outerHTML);
   };
 
+
+  // upload the image list
+  const uploadImageList = async () => {
+    await uploadImageRequest(fileList.map((file) => file.originFileObj as FileType))
+      .then((res) => {
+        console.log(res)
+      })
+  }
+
   return (
-      <div className='flex flex-col flex-1 w-full h-full'>
+      <div className='flex flex-col flex-1 w-full h-full overflow-x-hidden'>
         <Form layout='vertical' style={{ fontWeight: 'bold' }}>
           <Row gutter={[16, 16]}>
             <Col xs={24} sm={12} md={8}>
@@ -73,8 +83,15 @@ export default function NewProduct() {
             <Col  xs={24} sm={12} md={6}>
               <ImgCrop rotationSlider>
                 <Upload
+                    beforeUpload={(file) => {
+                      return true
+                    } }
+                    customRequest={({ file, onSuccess }) => {
+                      onSuccess && onSuccess("ok")
+                    }}
+                    name="file"
                     maxCount={8}
-                    action="https://660d2bd96ddfa2943b33731c.mockapi.io/api/upload"
+                    accept='.png,.jpg, .jpeg'
                     listType="picture-card"
                     fileList={fileList}
                     onChange={onChange}
@@ -101,7 +118,7 @@ export default function NewProduct() {
 
           <Row justify="center" gutter={[16, 16]} className="!max-w-[900px]">
             <Col>
-              <Button type="primary" style={{ margin: '10px' }}>Submit</Button>
+              <Button type="primary" style={{ margin: '10px' }} onClick={uploadImageList}>Submit</Button>
             </Col>
             <Col>
               <Button type="default" style={{ margin: '10px' }} className="!border-red-500 !text-red-500">Reset</Button>
