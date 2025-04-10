@@ -28,6 +28,7 @@
     "@tiptap/starter-kit": "^2.11.7",
     "antd": "^5.24.6",
     "antd-img-crop": "^4.24.0",
+    "axios": "^1.8.4",
     "class-variance-authority": "^0.7.1",
     "draft-js": "^0.11.7",
     "framer-motion": "^12.6.3",
