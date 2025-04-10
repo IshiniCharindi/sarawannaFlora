@@ -68,10 +68,10 @@ const Footer = () => {
 
     // Quick links data
     const quickLinks = [
-        { name: 'About', url: '#', icon: arrow },
-        { name: 'Features', url: '#', icon: arrow },
-        { name: 'Works', url: '#', icon: arrow },
-        { name: 'Career', url: '#', icon: arrow }
+        { name: 'Home', url: '/', icon: arrow },
+        { name: 'Shop', url: '/shop', icon: arrow },
+        { name: 'About Us', url: '/aboutus', icon: arrow },
+        { name: 'Contact Us', url: '/contactus', icon: arrow }
     ];
 
     // Contact details
