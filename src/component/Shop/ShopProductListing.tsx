@@ -240,8 +240,6 @@ const ShopProductListing: React.FC = () => {
                                 <option value="bestMatch">Best Match</option>
                                 <option value="priceLowHigh">Price: Low to High</option>
                                 <option value="priceHighLow">Price: High to Low</option>
-                                <option value="bestSelling">Best Selling</option>
-                                <option value="topRated">Top Rated</option>
                             </select>
                         </div>
                     </div>
@@ -250,11 +248,11 @@ const ShopProductListing: React.FC = () => {
                         {currentProducts.map(product => (
                             <FlowerCard
                                 key={product.product_id}
-                                id={product.product_id ?? "default-id"}
-                                name={product.tittle}
+                                product_id={product.product_id ?? "default-id"}
+                                tittle={product.tittle}
                                 category={product.category}
-                                price={product.unit_price}
-                                imageUrl={product.coverImageLink}
+                                unit_price={product.unit_price}
+                                coverImageLink={product.coverImageLink}
                             />
                         ))}
                     </div>

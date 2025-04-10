@@ -10,3 +10,25 @@
 .animate-zoom {
     animation: zoom 5s ease-in-out infinite;
 }
+
+
+@media (max-width: 660px) {
+
+    .aboutImageSlider{
+        margin-bottom: 100px;
+    }
+    .sliderImage{
+        margin-bottom: 100px;
+    }
+}
+
+@media (max-width: 640px) {
+
+    .aboutImageSlider{
+        margin-bottom: 100px;
+    }
+    .sliderImage{
+        margin-bottom: 100px;
+    }
+
+}

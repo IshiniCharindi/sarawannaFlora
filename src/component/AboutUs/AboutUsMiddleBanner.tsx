@@ -1,5 +1,6 @@
 import aboutVideo from "../../assets/videos/aboutUsBannerVideo.mp4"
 import {Link} from "react-router-dom";
+import AboutImageSlider from "./AboutImageSlider.tsx";
 const AboutUsMiddleBanner = () => {
     return (
         <div>
@@ -42,15 +43,16 @@ const AboutUsMiddleBanner = () => {
                         </div>
                         <div className="md:col-span-6 relative">
                             <div className="w-full mx-auto rounded-lg overflow-hidden shadow-lg">
-                                <video
-                                    src={aboutVideo}
-                                    autoPlay
-                                    loop
-                                    muted
-                                    playsInline
-                                    className="w-full h-[370px] object-cover border-white"
-                                    style={{borderWidth: "16px"}}
-                                />
+                                {/*<video*/}
+                                {/*    src={aboutVideo}*/}
+                                {/*    autoPlay*/}
+                                {/*    loop*/}
+                                {/*    muted*/}
+                                {/*    playsInline*/}
+                                {/*    className="w-full h-[370px] object-cover border-white"*/}
+                                {/*    style={{borderWidth: "16px"}}*/}
+                                {/*/>*/}
+                                <AboutImageSlider/>
                             </div>
                         </div>
 

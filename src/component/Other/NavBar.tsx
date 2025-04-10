@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import cart from "../../assets/icons/cart.png";
-import login from "../../assets/icons/login.png";
 import { Link } from "react-router-dom";
 
 const NavBar = () => {
@@ -49,8 +48,8 @@ const NavBar = () => {
                                 />
                             </svg>
                         </button>
-                        <Link to="/cart">
-                            <img src={cart} alt="Cart" className="w-5 h-5"/>
+                        <Link to="/product/details/cart">
+                            <img src={cart} alt="IconCart" className="w-5 h-5"/>
                         </Link>
                     </div>
 
@@ -65,8 +64,8 @@ const NavBar = () => {
 
                     {/* Desktop Icons */}
                     <div className="hidden lg:flex space-x-4">
-                        <Link to="/cart">
-                            <img src={cart} alt="Cart" className="w-5 h-5"/>
+                        <Link to="/product/details/cart">
+                            <img src={cart} alt="IconCart" className="w-5 h-5"/>
                         </Link>
                     </div>
                 </nav>

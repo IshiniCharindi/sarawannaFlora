@@ -1,14 +1,16 @@
-import { Suspense, useState } from "react";
+import React, { Suspense, useState } from "react";
 import flower1 from '../../assets/images/gallery1.jpg';
 import flower2 from '../../assets/images/gallery2.jpg';
 import flower3 from '../../assets/images/gallery3.jpg';
 import flower4 from '../../assets/images/gallery4.jpg';
+import {ProductInterface} from "../../models/Product.tsx";
 
-const ProductDetails = () => {
-    const [selectedImage, setSelectedImage] = useState(flower1); // Start with the actual image import
+const ProductDetails:React.FC<ProductInterface> = ({ tittle, category,unit_price, coverImageLink,stock,description}) => {
+    const [selectedImage, setSelectedImage] = useState(flower1);
     const [quantity, setQuantity] = useState(1);
 
-    const basePrice = 1000; // LKR per bouquet
+
+    const basePrice = unit_price; // LKR per bouquet
     const totalPrice = basePrice * quantity;
 
     const handleQuantityChange = (change) => {
@@ -50,7 +52,7 @@ const ProductDetails = () => {
 
                 {/* Product Details */}
                 <div>
-                    <h1 className="md:mt-5 text-2xl md:text-3xl font-bold text-gray-900 mb-3">Spring Blossom Flower
+                    <h1 className="md:mt-5 text-2xl md:text-3xl font-bold text-gray-900 mb-3">{tittle}
                         Bouquet</h1>
                     <div className="flex items-center gap-3 mb-4">
                         <span
@@ -60,13 +62,13 @@ const ProductDetails = () => {
                     </div>
 
                     <div className="flex items-center mb-4">
-                        <div className="text-yellow-400 text-lg">Category</div>
+                        <div className="text-yellow-400 text-lg">{category}</div>
                         <span className="mx-2 text-gray-300">•</span>
-                        <span className="text-green-600 text-sm font-medium">In Stock</span>
-                    </div>
-
-                    <div className="mb-6">
-                        <span className="bg-green-100 text-green-800 text-sm font-medium px-2.5 py-1 rounded-full">Special Offer</span>
+                        {stock ? (
+                            <span className="text-green-600 text-sm font-medium">In Stock</span>
+                        ) : (
+                            <span className="text-rose-600 text-sm font-medium">Out of Stock</span>
+                        )}
                     </div>
 
                     {/* Quantity & Price */}
@@ -74,8 +76,9 @@ const ProductDetails = () => {
                         <div className="flex items-center gap-4 mb-4">
                             <div className="flex border border-gray-300 rounded-lg w-32 h-12">
                                 <button
-                                    className="flex-1 text-gray-600 hover:bg-gray-100 rounded-l-lg transition-colors"
+                                    className="flex-1 text-gray-600 hover:bg-gray-100 rounded-l-lg transition-colors disabled:opacity-50"
                                     onClick={() => handleQuantityChange(-1)}
+                                    disabled={!stock}
                                 >
                                     −
                                 </button>
@@ -84,8 +87,9 @@ const ProductDetails = () => {
                                     {quantity}
                                 </div>
                                 <button
-                                    className="flex-1 text-gray-600 hover:bg-gray-100 rounded-r-lg transition-colors"
+                                    className="flex-1 text-gray-600 hover:bg-gray-100 rounded-r-lg transition-colors disabled:opacity-50"
                                     onClick={() => handleQuantityChange(1)}
+                                    disabled={!stock}
                                 >
                                     +
                                 </button>
@@ -97,12 +101,14 @@ const ProductDetails = () => {
                         </div>
 
                         <button
-                            className="bg-yellow-600 text-white h-12 px-6 rounded-lg hover:bg-yellow-500 transition-colors flex items-center justify-center gap-2 w-full">
+                            className="bg-yellow-600 text-white h-12 px-6 rounded-lg hover:bg-yellow-500 transition-colors flex items-center justify-center gap-2 w-full disabled:opacity-50 disabled:cursor-not-allowed"
+                            disabled={!stock}
+                        >
                             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
                                       d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/>
                             </svg>
-                            Add to Cart
+                            {stock ? "Add to Cart" : "Out of Stock"}
                         </button>
                     </div>
                 </div>
@@ -122,9 +128,7 @@ const ProductDetails = () => {
                 >
                     <div className="prose prose-lg prose-gray max-w-none bg-white p-6 rounded-xl shadow-md">
                         <p className="leading-relaxed text-gray-700">
-                            This gorgeous bouquet is made with love and care. Perfect for celebrating spring,
-                            birthdays, anniversaries, or simply to brighten someone’s day. Freshly hand-picked flowers,
-                            eco-friendly packaging, and available for next-day delivery.
+                            {description}
                         </p>
                     </div>
                 </Suspense>

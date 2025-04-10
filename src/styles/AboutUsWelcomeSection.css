@@ -1,5 +1,45 @@
-.aboutUsWelcomeSection{
+.aboutUsWelcomeSection {
     background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url("../assets/images/aboutBg.jpg");
+    height: auto;
+    width: 100vw;
     background-size: cover;
-    background-position: center top 31%;
+    background-position: center top 60%;
+    position: relative;
+}
+
+/* Media query for screens up to 640px */
+@media (max-width: 640px) {
+    .aboutUsWelcomeSection {
+        background-position: center top 40%; /* Adjust background position for mobile */
+        min-height: 90vh; /* Increase minimum height for better mobile display */
+        padding-top: 2rem; /* Add some padding at the top */
+        padding-bottom: 2rem; /* Add some padding at the bottom */
+    }
+
+    /* You might also want to adjust the overlay opacity for better readability on mobile */
+    .aboutUsWelcomeSection .absolute {
+        background-opacity: 0.6; /* Darker overlay for better text contrast on mobile */
+    }
+    .aboutTopic{
+        margin-top: 10px;
+    }
+}
+@media (max-width: 500px) {
+
+    .aboutTopic{
+        margin-top: 100px;
+    }
+}
+
+@media (max-width: 400px) {
+
+    .aboutTopic{
+        margin-top: 100px;
+    }
+}
+@media (max-width: 350px) {
+
+    .aboutTopic{
+        margin-top: 150px;
+    }
 }
