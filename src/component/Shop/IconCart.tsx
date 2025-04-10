@@ -1,9 +1,12 @@
 import { useState } from 'react';
 import { ShoppingCart, Heart, X, Plus, Minus } from 'lucide-react';
 import {CartInterface} from "../../models/Cart.tsx";
+import {Link} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 
 const IconCart = () => {
+    const navigate = useNavigate();
     const [isCartOpen, setIsCartOpen] = useState(false);
     const [cartItems, setCartItems] = useState<CartInterface[]>([
         {
@@ -45,11 +48,11 @@ const IconCart = () => {
             {/* IconCart Button */}
             <button
                 onClick={() => setIsCartOpen(!isCartOpen)}
-                className="relative p-4 bg-pink-500 hover:bg-pink-600 rounded-full shadow-lg transition-all duration-300 transform hover:scale-110"
+                className="relative p-4  hover:cursor-pointer bg-[var(--color-primary)] hover:[var(--color-secondary)] rounded-full shadow-lg transition-all duration-300 transform hover:scale-110"
             >
                 <ShoppingCart className="text-white h-6 w-6" />
                 {totalItems > 0 && (
-                    <span className="absolute -top-2 -right-2 bg-rose-600 text-white text-xs font-bold rounded-full h-6 w-6 flex items-center justify-center">
+                    <span className="absolute -top-2 -right-2 bg-[var(--color-secondary)] text-white text-xs font-bold rounded-full h-6 w-6 flex items-center justify-center">
             {totalItems}
           </span>
                 )}
@@ -58,11 +61,11 @@ const IconCart = () => {
             {/* IconCart Dropdown */}
             {isCartOpen && (
                 <div className="absolute bottom-16 right-0 w-80 bg-white rounded-lg shadow-xl overflow-hidden transition-all duration-300">
-                    <div className="bg-gradient-to-r from-pink-500 to-rose-500 p-4 text-white">
+                    <div className="bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-secondary)] p-4 text-white">
                         <div className="flex justify-between items-center">
                             <h2 className="text-xl font-bold">Your Flower Cart</h2>
                             <button onClick={() => setIsCartOpen(false)}>
-                                <X className="h-5 w-5" />
+                                <X className="h-5 w-5 hover:cursor-pointer" />
                             </button>
                         </div>
                         <p className="text-sm opacity-90">{totalItems} item(s)</p>
@@ -72,7 +75,7 @@ const IconCart = () => {
                     <div className="max-h-96 overflow-y-auto">
                         {cartItems.length === 0 ? (
                             <div className="p-6 text-center text-gray-500">
-                                <Heart className="h-10 w-10 mx-auto mb-2 text-pink-200" />
+                                <Heart className="h-10 w-10 mx-auto mb-2 text-[var(--color-primary)]" />
                                 <p>Your cart is empty</p>
                                 <p className="text-sm">Add some beautiful flowers!</p>
                             </div>
@@ -93,23 +96,23 @@ const IconCart = () => {
                                                     <h3 className="text-sm font-medium text-gray-900">{item.tittle}</h3>
                                                     <button
                                                         onClick={() => removeItem(item.id)}
-                                                        className="text-gray-400 hover:text-rose-500"
+                                                        className="text-gray-400 hover:text-[var(--color-primary)] hover:cursor-pointer"
                                                     >
                                                         <X className="h-4 w-4" />
                                                     </button>
                                                 </div>
-                                                <p className="mt-1 text-sm text-pink-600">${item.price.toFixed(2)}</p>
+                                                <p className="mt-1 text-sm text-[var(--color-primary)]">${item.price.toFixed(2)}</p>
                                                 <div className="mt-2 flex items-center">
                                                     <button
                                                         onClick={() => updateQuantity(item.id, item.quantity - 1)}
-                                                        className="text-gray-500 hover:text-pink-600 p-1"
+                                                        className="text-gray-500 hover:[var(--color-primary)] p-1"
                                                     >
                                                         <Minus className="h-3 w-3" />
                                                     </button>
                                                     <span className="mx-2 text-sm text-gray-700">{item.quantity}</span>
                                                     <button
                                                         onClick={() => updateQuantity(item.id, item.quantity + 1)}
-                                                        className="text-gray-500 hover:text-pink-600 p-1"
+                                                        className="text-gray-500 hover:[var(--color-primary)] p-1"
                                                     >
                                                         <Plus className="h-3 w-3" />
                                                     </button>
@@ -130,13 +133,15 @@ const IconCart = () => {
                                 <p>${subtotal.toFixed(2)}</p>
                             </div>
                             <button
-                                className="w-full bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 text-white py-3 px-4 rounded-md font-medium transition duration-300"
+                                onClick={() => {
+                                    setIsCartOpen(false); // Close the cart
+                                    navigate("/product/details/cart"); // Navigate to the form
+                                }}
+                                className="w-full bg-gradient-to-r from-black to-gray-500 hover:from-black/80 hover:to-gray-500 hover:cursor-pointer text-white py-3 px-4 rounded-md font-medium transition duration-300"
                             >
                                 Checkout
                             </button>
-                            <p className="mt-2 text-center text-xs text-gray-500">
-                                Free delivery on orders over $50
-                            </p>
+
                         </div>
                     )}
                 </div>

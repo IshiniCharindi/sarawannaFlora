@@ -20,15 +20,15 @@ interface ProductInterface {
 class Product implements ProductInterface {
     product_id?: string
     tittle: string
-    stock: boolean
-    top_item: boolean
-    cat_id: string
-    description: string
+    stock?: boolean
+    top_item?: boolean
+    cat_id?: string
+    description?: string
     unit_price: number
     category: string
-    unit_measured: string
-    coverImageLink: string
-    rawImage: any
+    unit_measured?: string
+    coverImageLink?: string
+    rawImage?: any
 
     constructor({
                     product_id,

@@ -158,7 +158,7 @@ const ProductDetailsView = () => {
     }, [id, location.search]);
 
     return (
-        <div className="mt-20">
+        <div className="mt-25">
             <NavBar/>
             {singleProduct ? (
                <ProductDetails product_id={singleProduct.product_id}

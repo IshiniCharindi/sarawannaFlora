@@ -11,6 +11,7 @@ import ContactUs from "./features/admin/ContactUs.tsx";
 import Login from "./features/Login.tsx";
 import IconCart from "./component/Shop/IconCart.tsx";
 import CartPage from "./features/CartPage.tsx";
+import ScrollToTop from "./component/Other/ScrollToTop.tsx";
 
 function App() {
     const loading = useSelector((state: RootState) => state.loadingSlice)
@@ -20,6 +21,8 @@ function App() {
         {/* Loading screen state */}
     {loading && <Loading/>}
       <BrowserRouter>
+          <ScrollToTop />
+          <IconCart/>
           <Routes>
               <Route element={<BaseHome/>} path='/'/>
               <Route element={<AdminBase/>} path='/admin'/>
