@@ -71,7 +71,7 @@ const CartContent = () => {
                 {/* Back to shopping link */}
                 <Link
                     to="/flowers"
-                    className="inline-flex items-center text-pink-600 hover:text-pink-700 mb-6"
+                    className="inline-flex items-center text-[var(--color-primary)] hover:text-[var(--color-secondary)] mb-6"
                 >
                     <ArrowLeft className="h-4 w-4 mr-1" />
                     Continue Shopping
@@ -123,7 +123,7 @@ const CartContent = () => {
                                                         <p className="mt-1 text-sm text-rose-600">Out of Stock</p>
                                                     )}
 
-                                                    <p className="mt-1 text-lg font-medium text-pink-600">
+                                                    <p className="mt-1 text-lg font-medium text-[var(--color-primary)]">
                                                         ${item.price.toFixed(2)}
                                                     </p>
 
@@ -174,8 +174,8 @@ const CartContent = () => {
                                     <div className="flex justify-between">
                                         <span className="text-sm text-gray-600">Subtotal</span>
                                         <span className="text-sm font-medium text-gray-900">
-                      ${subtotal.toFixed(2)}
-                    </span>
+                                          ${subtotal.toFixed(2)}
+                                        </span>
                                     </div>
 
                                     <div className="flex justify-between">
@@ -207,7 +207,7 @@ const CartContent = () => {
                                 <div className="mt-6">
                                     <button
                                         disabled={cartItems.length === 0}
-                                        className={`w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white ${cartItems.length === 0 ? 'bg-gray-300 cursor-not-allowed' : 'bg-black hover:bg-pink-700'}`}
+                                        className={`w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white ${cartItems.length === 0 ? 'bg-[gray-300] cursor-not-allowed' : 'bg-black cursor-pointer hover:bg-black/91'}`}
                                     >
                                         Checkout
                                     </button>
@@ -224,7 +224,7 @@ const CartContent = () => {
                                         or{' '}
                                         <Link
                                             to="/flowers"
-                                            className="text-pink-600 hover:text-pink-500"
+                                            className="text-[var(--color-primary)] hover:text-[var(--color-secondary)]"
                                         >
                                             Continue Shopping
                                         </Link>
@@ -233,22 +233,20 @@ const CartContent = () => {
                             </div>
                         </div>
 
-                        {/* Promo Code */}
+                        {/* Customer Support */}
                         <div className="mt-4 bg-white rounded-lg shadow overflow-hidden">
                             <div className="p-6">
-                                <h3 className="text-sm font-medium text-gray-900">Promo Code</h3>
+                                <h3 className="text-sm font-medium text-gray-900">Need Help?</h3>
                                 <p className="mt-1 text-sm text-gray-500">
-                                    Enter your promo code if you have one
+                                    Our floral experts are available 24/7 to assist you with your order.
                                 </p>
-                                <div className="mt-4 flex">
-                                    <input
-                                        type="text"
-                                        placeholder="Promo code"
-                                        className="flex-1 border border-gray-300 rounded-l-md px-3 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-pink-500 focus:border-pink-500"
-                                    />
-                                    <button className="bg-pink-600 hover:bg-pink-700 text-white px-4 py-2 rounded-r-md text-sm font-medium">
-                                        Apply
-                                    </button>
+                                <div className="mt-4 space-y-2">
+                                    <p className="text-sm">
+                                        <span className="font-medium">Email:</span> support@yourflowershop.com
+                                    </p>
+                                    <p className="text-sm">
+                                        <span className="font-medium">Phone:</span> (555) 123-4567
+                                    </p>
                                 </div>
                             </div>
                         </div>

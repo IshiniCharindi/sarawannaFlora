@@ -10,7 +10,7 @@ import AboutUsWelcomeSection from "../component/AboutUs/AboutUsWelcomeSection.ts
 
 const AboutUs = () => {
     return (
-        <div>
+        <div className="">
             <NavBar/>
             <TopBanner
                 image={aboutBanner}

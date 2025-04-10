@@ -16,7 +16,7 @@ function App() {
     const loading = useSelector((state: RootState) => state.loadingSlice)
 
   return (
-    <div className="screen">
+    <div >
         {/* Loading screen state */}
     {loading && <Loading/>}
       <BrowserRouter>

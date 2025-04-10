@@ -16,7 +16,7 @@ const AboutUsWelcomeSection = () => {
                     <span className="absolute left-1/2 mt-5 transform -translate-x-1/2 bottom-0 w-[55px] h-[2px] bg-[var(--color-primary)]"></span>
                 </p>
             </div>
-            <div className="aboutUsWelcomeSection h-auto min-h-[80vh] sm:h-[100vh] lg:h-[100vh] flex items-center justify-center py-10 sm:py-0 relative">
+            <div className="aboutUsWelcomeSection min-h-[100vh] md:min-h-[91vh] sm:h-[100vh] flex items-center justify-center py-10 sm:py-0 relative">
                 {/* Dark overlay */}
                 {/*<div className="absolute inset-0 bg-black/25 bg-opacity-10"></div>*/}
 

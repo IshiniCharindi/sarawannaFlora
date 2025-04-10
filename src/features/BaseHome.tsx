@@ -10,7 +10,7 @@ import BaseHomeTopBanner from "../component/BaseHome/BaseHomeTopBanner.tsx";
 
 const BaseHome = () => {
     return (
-        <div className="basehome w-full ">
+        <div className="basehome ">
             <NavBar/>
             <Slider/>
             <BaseHomeTopBanner/>
