@@ -1,13 +1,16 @@
 import { useState } from 'react'
-import { Form, Input, Select, Checkbox, Upload, Button, Row, Col } from 'antd'
+import { Form, Input, Select, Checkbox, Upload, Button, Row, Col, Grid } from 'antd'
 import type { GetProp, UploadFile, UploadProps } from 'antd';
 import ImgCrop from 'antd-img-crop';
 import { Editor, EditorTextChangeEvent } from "primereact/editor";
 import { uploadImageRequest } from '../../services/productRequests';
 
 type FileType = Parameters<GetProp<UploadProps, 'beforeUpload'>>[0];
-export default function NewProduct() {
 
+const { useBreakpoint } = Grid;
+
+export default function NewProduct() {
+  const screens = useBreakpoint();
   const [editableText, setEditableText] = useState<any>('');
   const [fileList, setFileList] = useState<UploadFile[]>([]);
 
@@ -30,98 +33,167 @@ export default function NewProduct() {
     imgWindow?.document.write(image.outerHTML);
   };
 
-
-  // upload the image list
   const uploadImageList = async () => {
     await uploadImageRequest(fileList.map((file) => file.originFileObj as FileType))
-      .then((res) => {
-        console.log(res)
-      })
+        .then((res) => {
+          console.log(res)
+        })
   }
 
   return (
-      <div className='flex flex-col flex-1 w-full h-full overflow-x-hidden'>
-        <Form layout='vertical' style={{ fontWeight: 'bold' }}>
-          <Row gutter={[16, 16]}>
-            <Col xs={24} sm={12} md={8}>
+      <div className='flex flex-col flex-1 w-full h-full overflow-x-hidden p-4'>
+        <Form layout='vertical' align="middle" style={{ fontWeight: 'bold' }}>
+          {/* Title, Category, Unit Row */}
+          <Row gutter={[16, 16]} style={{ display: 'flex', flexWrap: 'wrap' }}>
+            <Col flex="1 1 300px">
               <Form.Item label="Title" rules={[{ required: true, message: 'Please input the title!' }]}>
-                <Input />
+                <Input size={screens.xs ? 'middle' : 'large'} style={{ width: '100%' }} />
               </Form.Item>
             </Col>
 
-            <Col xs={24} sm={12} md={8}>
+            <Col flex="1 1 300px">
               <Form.Item label="Category" rules={[{ required: true, message: 'Please select a category!' }]}>
-                <Select />
-              </Form.Item>
-            </Col>
-
-            <Col xs={24} sm={12} md={8}>
-              <Form.Item label="Unit" rules={[{ required: true, message: 'Please input the unit!' }]}>
-                <Input />
+                <Select size={screens.xs ? 'middle' : 'large'} style={{ width: '100%' }} />
               </Form.Item>
             </Col>
           </Row>
 
-          <Row gutter={[16, 16]} align="bottom">
-            <Col xs={24} sm={12} md={6}>
-              <Form.Item label="Unit Price (LKR)" rules={[{ required: true, message: 'Please input the price!' }]}>
-                <Input type="number" />
+          {/* Price, Checkboxes, Upload Row */}
+          <Row gutter={[16, 16]} align="middle">
+            <Col flex=" 1 1 150px">
+              <Form.Item label="Unit" rules={[{ required: true, message: 'Please input the unit!' }]}>
+                <Input size={screens.xs ? 'middle' : 'large'} />
               </Form.Item>
             </Col>
 
-            <Col xs={12} sm={12} md={6}>
-              <Form.Item label="In Stock" valuePropName="checked">
+            <Col flex=" 1 1 150px">
+              <Form.Item label="Unit Price (LKR)" rules={[{ required: true, message: 'Please input the price!' }]}>
+                <Input type="number" size={screens.xs ? 'middle' : 'large'} />
+              </Form.Item>
+            </Col>
+
+            <Col flex="1 1 150px" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+              <Form.Item
+                  label="In Stock"
+                  valuePropName="checked"
+                  style={{
+                    marginBottom: 0,
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    width: '100%'
+                  }}
+              >
                 <Checkbox defaultChecked />
               </Form.Item>
             </Col>
 
-            <Col xs={12} sm={12} md={6}>
-              <Form.Item label="Top Product" valuePropName="checked">
+            <Col flex="1 1 150px" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+              <Form.Item
+                  label="Top Product"
+                  valuePropName="checked"
+                  style={{
+                    marginBottom: 0,
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    width: '100%'
+                  }}
+              >
                 <Checkbox />
               </Form.Item>
             </Col>
-            <Col  xs={24} sm={12} md={6}>
-              <ImgCrop rotationSlider>
-                <Upload
-                    beforeUpload={(file) => {
-                      return true
-                    } }
-                    customRequest={({ file, onSuccess }) => {
-                      onSuccess && onSuccess("ok")
-                    }}
-                    name="file"
-                    maxCount={8}
-                    accept='.png,.jpg, .jpeg'
-                    listType="picture-card"
-                    fileList={fileList}
-                    onChange={onChange}
-                    onPreview={onPreview}
-                >
-                  {fileList.length < 5 && '+ Upload'}
-                </Upload>
-              </ImgCrop>
-            </Col>
           </Row>
+            <Col xs={24} sm={24} md={6}>
+              <Form.Item label="Images">
+                <ImgCrop rotationSlider>
+                  <Upload
+                      beforeUpload={(file) => true}
+                      customRequest={({ file, onSuccess }) => onSuccess && onSuccess("ok")}
+                      name="file"
+                      maxCount={8}
+                      accept='.png,.jpg, .jpeg'
+                      listType={screens.xs ? 'picture' : 'picture-card'}
+                      fileList={fileList}
+                      onChange={onChange}
+                      onPreview={onPreview}
+                  >
+                    {fileList.length < 5 && (screens.xs ? 'Click to Upload' : '+ Upload')}
+                  </Upload>
+                </ImgCrop>
+              </Form.Item>
+            </Col>
 
 
+          {/* Description Editor */}
           <Row gutter={[16, 16]}>
             <Col span={24}>
               <Form.Item name="editableText" label="Product Description">
                 <Editor
                     value={editableText}
                     onTextChange={(e: EditorTextChangeEvent) => setEditableText(e.htmlValue)}
-                    style={{ height: '320px' }}
+                    style={{ height: screens.xs ? '220px' : '320px' }}
                 />
               </Form.Item>
             </Col>
           </Row>
 
-          <Row justify="center" gutter={[16, 16]} className="!max-w-[900px]">
-            <Col>
-              <Button type="primary" style={{ margin: '10px' }} onClick={uploadImageList}>Submit</Button>
+          {/* Buttons */}
+          <Row
+              justify="center"
+              gutter={[16, 16]}
+              style={{
+                maxWidth: '900px',
+                margin: '0 auto',
+                width: '100%'
+              }}
+          >
+            <Col
+                xs={24}  // Full width on mobile
+                sm={12}  // Half width on tablet+
+                md={8}   // Smaller width on desktop
+                lg={6}   // Even smaller on large screens
+                style={{
+                  minWidth: screens.xs ? '100%' : '200px',  // Minimum button width
+                  padding: '0 8px'  // Internal spacing
+                }}
+            >
+              <Button
+                  type="primary"
+                  size={screens.xs ? 'middle' : 'large'}
+                  block
+                  onClick={uploadImageList}
+                  style={{
+                    height: screens.xs ? '40px' : '48px',  // Consistent button height
+                    fontSize: screens.xs ? '14px' : '16px'  // Responsive text size
+                  }}
+              >
+                Submit
+              </Button>
             </Col>
-            <Col>
-              <Button type="default" style={{ margin: '10px' }} className="!border-red-500 !text-red-500">Reset</Button>
+
+            <Col
+                xs={24}  // Full width on mobile
+                sm={12}  // Half width on tablet+
+                md={8}   // Smaller width on desktop
+                lg={6}   // Even smaller on large screens
+                style={{
+                  minWidth: screens.xs ? '100%' : '200px',  // Minimum button width
+                  padding: '0 8px'  // Internal spacing
+                }}
+            >
+              <Button
+                  type="default"
+                  size={screens.xs ? 'middle' : 'large'}
+                  block
+                  className="!border-red-500 !text-red-500"
+                  style={{
+                    height: screens.xs ? '40px' : '48px',  // Consistent button height
+                    fontSize: screens.xs ? '14px' : '16px'  // Responsive text size
+                  }}
+              >
+                Reset
+              </Button>
             </Col>
           </Row>
         </Form>
