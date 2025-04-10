@@ -28,7 +28,6 @@ function App() {
               <Route element={<AboutUs/>} path='/aboutus'/>
               <Route element={<ProductDetailView />} path="/product/details/:id"  />
               <Route element={<CartPage />} path="/product/details/cart"  />
-
               <Route element={<ContactUs/>} path='/contactus'/>
               <Route element={<Login/>} path='/login'/>
 

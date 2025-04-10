@@ -6,13 +6,13 @@
 interface ProductInterface {
     product_id?: string
     tittle: string
-    stock: boolean
-    top_item: boolean
-    cat_id: string
-    description: string
+    stock?: boolean
+    top_item?: boolean;
+    cat_id?: string
+    description?: string
     unit_price: number
     category: string
-    unit_measured: string
+    unit_measured?: string
     coverImageLink?: any
     rawImage?: any
 }

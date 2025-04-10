@@ -248,11 +248,11 @@ const ShopProductListing: React.FC = () => {
                         {currentProducts.map(product => (
                             <FlowerCard
                                 key={product.product_id}
-                                id={product.product_id ?? "default-id"}
-                                name={product.tittle}
+                                product_id={product.product_id ?? "default-id"}
+                                tittle={product.tittle}
                                 category={product.category}
-                                price={product.unit_price}
-                                imageUrl={product.coverImageLink}
+                                unit_price={product.unit_price}
+                                coverImageLink={product.coverImageLink}
                             />
                         ))}
                     </div>

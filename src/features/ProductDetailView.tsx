@@ -161,7 +161,14 @@ const ProductDetailsView = () => {
         <div className="mt-20">
             <NavBar/>
             {singleProduct ? (
-               <ProductDetails/>
+               <ProductDetails product_id={singleProduct.product_id}
+                               stock={singleProduct.stock}
+                               unit_price={singleProduct.unit_price}
+                               tittle={singleProduct.tittle}
+                               category={singleProduct.category}
+                               coverImageLink={singleProduct.coverImageLink}
+                               description={singleProduct.description}
+               />
             ) : (
                 <p>Loading product details...</p>
             )}

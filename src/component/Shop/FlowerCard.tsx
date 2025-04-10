@@ -1,24 +1,17 @@
 import React from "react";
 import {ShoppingCart, Eye} from "lucide-react";
 import {Link} from "react-router-dom";
+import {ProductInterface} from "../../models/Product.tsx";
 
-interface FlowerCardProps {
-    id: string;
-    name: string;
-    price: number;
-    category: string;
-    imageUrl: string;
-}
-
-const FlowerCard: React.FC<FlowerCardProps> = ({id, name, category, price, imageUrl}) => {
+const FlowerCard: React.FC<ProductInterface> = ({product_id, tittle, category,unit_price, coverImageLink}) => {
 
     return (
         <div
             className="rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 group relative">
             <div className="h-48 overflow-hidden relative">
                 <img
-                    src={imageUrl}
-                    alt={name}
+                    src={coverImageLink}
+                    alt={tittle}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                     onError={(e) => {
                         (e.target as HTMLImageElement).src = "https://via.placeholder.com/300x200?text=Flower+Image";
@@ -35,7 +28,7 @@ const FlowerCard: React.FC<FlowerCardProps> = ({id, name, category, price, image
                         <ShoppingCart size={20}/>
                     </button>
 
-                    <Link to={`/product/details/${id}?category=${category}`}>
+                    <Link to={`/product/details/${product_id}?category=${category}`}>
                         <button className="bg-green-600 p-2 rounded-full text-white hover:bg-green-700">
                             <Eye size={20}/>
                         </button>
@@ -45,11 +38,11 @@ const FlowerCard: React.FC<FlowerCardProps> = ({id, name, category, price, image
             </div>
             <div className="p-4 flex flex-col items-center bg-white">
                 <h3 className="text-base font-bold text-black mb-1 text-center tracking-wide">
-                    {name}
+                    {tittle}
                 </h3>
                 <div className="text-gray-800 text-base">
                     <span className="font-semibold bg-green-100 text-green-800 px-3 py-1 rounded-md shadow-sm">
-                      Rs. {price.toLocaleString()}
+                      Rs. {unit_price.toLocaleString()}
                     </span>
                 </div>
             </div>
