@@ -104,25 +104,27 @@ export default function NewProduct() {
               </Form.Item>
             </Col>
           </Row>
-            <Col xs={24} sm={24} md={6}>
-              <Form.Item label="Images">
-                <ImgCrop rotationSlider>
-                  <Upload
-                      beforeUpload={(file) => true}
-                      customRequest={({ file, onSuccess }) => onSuccess && onSuccess("ok")}
-                      name="file"
-                      maxCount={8}
-                      accept='.png,.jpg, .jpeg'
-                      listType={screens.xs ? 'picture' : 'picture-card'}
-                      fileList={fileList}
-                      onChange={onChange}
-                      onPreview={onPreview}
-                  >
-                    {fileList.length < 5 && (screens.xs ? 'Click to Upload' : '+ Upload')}
-                  </Upload>
-                </ImgCrop>
-              </Form.Item>
-            </Col>
+          <Col xs={24} sm={24} md={24} style={{ width: '100%' }}>
+            <Form.Item label="Images">
+              <ImgCrop rotationSlider>
+                <Upload
+                    beforeUpload={(file) => true}
+                    customRequest={({ file, onSuccess }) => onSuccess && onSuccess("ok")}
+                    name="file"
+                    maxCount={8}
+                    accept='.png,.jpg,.jpeg'
+                    listType="picture-card"
+                    fileList={fileList}
+                    onChange={onChange}
+                    onPreview={onPreview}
+                    style={{ width: '100%' }}
+                    className="custom-upload-list"
+                >
+                  {fileList.length < 8 && '+ Upload'}
+                </Upload>
+              </ImgCrop>
+            </Form.Item>
+          </Col>
 
 
           {/* Description Editor */}
