@@ -7,6 +7,7 @@ import { uploadImageRequest } from '../../services/productRequests';
 import {PlusCircleOutlined} from '@ant-design/icons'
 import CategoryEditor from './CategoryEditor';
 import Category, { CategoryServices } from '../../models/Category';
+import { ProductServices } from '../../models/Product';
 
 
 type FileType = Parameters<GetProp<UploadProps, 'beforeUpload'>>[0];
@@ -39,12 +40,7 @@ export default function NewProduct() {
     imgWindow?.document.write(image.outerHTML);
   };
 
-  const uploadImageList = async () => {
-    // const response = await uploadImageRequest(fileQue);
-
-  }
-
-
+ 
 
   const [categoryList, setCategoryList] = useState<Array<Category>>([])
   // Load the existing categories 
@@ -61,8 +57,19 @@ export default function NewProduct() {
     }, [catPopup])
 
 
-    const formSubmission = (values: any) =>{
-      console.log(values,editableText)
+
+    // Form submission *****************************8
+    const formSubmission = async (values: any) =>{
+      const res = await ProductServices.productSubmission(fileQue, {...values, description: editableText})
+      if(res) {
+        // Display product create success
+        newFormRef.resetFields() // Reset all the fields
+        setEditableText('')
+        setFileList([])
+        setFileQue([])
+      } else {
+        // Error as product creation failed
+      }
     }
 
     const [newFormRef] = Form.useForm()
@@ -82,7 +89,7 @@ export default function NewProduct() {
           <Row gutter={[16, 16]} style={{ display: 'flex', flexWrap: 'wrap' }}>
             <Col flex="1 1 300px">
               <Form.Item 
-              name='title'
+              name='name'
               required label="Title" rules={[{ required: true, message: 'Please input the title!' }]}>
                 <Input size={screens.xs ? 'middle' : 'large'} style={{ width: '100%' }} />
               </Form.Item>
@@ -90,7 +97,7 @@ export default function NewProduct() {
 
             <Col flex="1 1 300px">
               <Form.Item 
-              name='category'
+              name='catId'
               required label="Category" rules={[{ required: true, message: 'Please select a category!' }]}>
                 <Select size={screens.xs ? 'middle' : 'large'} style={{ width: '100%' }}>
                   {
@@ -111,7 +118,7 @@ export default function NewProduct() {
           <Row gutter={[16, 16]} align="middle">
             <Col flex=" 1 1 150px">
               <Form.Item 
-              name='unitMeasured'
+              name='unitMeasure'
               required label="Unit" rules={[{ required: true, message: 'Please input the unit!' }]}>
                 <Input size={screens.xs ? 'middle' : 'large'} />
               </Form.Item>
@@ -127,7 +134,7 @@ export default function NewProduct() {
 
             <Col flex="1 1 150px" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
               <Form.Item 
-              name='inStock'
+              name='stock'
               layout='horizontal'
                   label="In Stock"
                   valuePropName="checked"
@@ -146,7 +153,7 @@ export default function NewProduct() {
 
             <Col flex="1 1 150px" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
               <Form.Item 
-              name='topProduct'
+              name='topItem'
               layout='horizontal'
                   label="Top Product"
                   valuePropName="checked"

@@ -3,6 +3,7 @@ import axios from "axios";
 import domain from "./serviceConfig";
 import { headers, fileUploadHeaders } from "./serviceConfig";
 import Category from "../models/Category";
+import Product from "../models/Product";
 
 const uploadImageRequest = async (files: Array<File>) => {
     console.log('uploading the file', files)
@@ -26,11 +27,17 @@ const loadCategoryRequest = async() => {
 }
 
 
+const createProductRequest = async (product: Product) => {
+    return await domain.post('/product/createProduct', product, headers)
+}
+
+
 
 
 
 export {
     uploadImageRequest,
     loadCategoryRequest,
-    createCategoryRequest
+    createCategoryRequest,
+    createProductRequest
 }
