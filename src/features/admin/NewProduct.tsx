@@ -1,10 +1,13 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Form, Input, Select, Checkbox, Upload, Button, Row, Col, Grid } from 'antd'
 import type { GetProp, UploadFile, UploadProps } from 'antd';
 import ImgCrop from 'antd-img-crop';
 import { Editor, EditorTextChangeEvent } from "primereact/editor";
 import { uploadImageRequest } from '../../services/productRequests';
 import {PlusCircleOutlined} from '@ant-design/icons'
+import CategoryEditor from './CategoryEditor';
+import Category, { CategoryServices } from '../../models/Category';
+
 
 type FileType = Parameters<GetProp<UploadProps, 'beforeUpload'>>[0];
 
@@ -15,6 +18,7 @@ export default function NewProduct() {
   const [editableText, setEditableText] = useState<any>('');
   const [fileList, setFileList] = useState<UploadFile[]>([]);
   const [fileQue, setFileQue] = useState<Array<File>>([])
+  const [catPopup, setCatpop] = useState<boolean>(false)
 
   const onChange: UploadProps['onChange'] = ({ fileList: newFileList }) => {
     setFileList(newFileList);
@@ -42,8 +46,26 @@ export default function NewProduct() {
   }
 
 
+
+  const [categoryList, setCategoryList] = useState<Array<Category>>([])
+  // Load the existing categories 
+  const loadCategories = async () => {
+    const res = await CategoryServices.loadCategories()
+    if(res) setCategoryList(res);
+    else {
+        // Display Error as failed to load categories
+    }
+  }
+
+    useEffect(() => {
+      loadCategories()
+    }, [catPopup])
+
+
+
   return (
       <div className='flex flex-col flex-1 w-full h-full overflow-x-hidden p-4'>
+        {catPopup && <CategoryEditor closer={setCatpop}/>}
         <Form layout='vertical' style={{ fontWeight: 'bold' }} encType='multipart/form-data'>
           {/* Title, Category, Unit Row */}
           <Row gutter={[16, 16]} style={{ display: 'flex', flexWrap: 'wrap' }}>
@@ -55,12 +77,18 @@ export default function NewProduct() {
 
             <Col flex="1 1 300px">
               <Form.Item label="Category" rules={[{ required: true, message: 'Please select a category!' }]}>
-                <Select size={screens.xs ? 'middle' : 'large'} style={{ width: '100%' }} />
+                <Select size={screens.xs ? 'middle' : 'large'} style={{ width: '100%' }}>
+                  {
+                    categoryList.map((element, index) => {
+                      return (<Select.Option key={index} value={element.catId}>{element.name}</Select.Option>)
+                    })
+                  }
+                </Select>
               </Form.Item>
             </Col>
 
             <Col flex="1 1 100px" className='flex items-center'>
-              <PlusCircleOutlined className='text-3xl cursor-pointer'/>
+              <PlusCircleOutlined className='text-3xl cursor-pointer' onClick={() => setCatpop(true)}/>
             </Col>
           </Row>
 
