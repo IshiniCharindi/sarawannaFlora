@@ -1,7 +1,7 @@
 import React from "react";
 import {ShoppingCart, Eye} from "lucide-react";
 import {Link} from "react-router-dom";
-import {ProductInterface} from "../../models/Product.tsx";
+import {ProductInterface} from "../../models/Product2.tsx";
 
 const FlowerCard: React.FC<ProductInterface> = ({product_id, tittle, category,unit_price, coverImageLink}) => {
 

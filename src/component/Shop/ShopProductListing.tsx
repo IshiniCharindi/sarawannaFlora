@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import FlowerCard from "./FlowerCard.tsx";
 import ShopFilterSideBar from "./ShopFilterSideBar.tsx";
 import { FiFilter, FiX } from "react-icons/fi";
-import {ProductInterface} from "../../models/Product.tsx";
+import {ProductInterface} from "../../models/Product2.tsx";
 
 
 const ShopProductListing: React.FC = () => {

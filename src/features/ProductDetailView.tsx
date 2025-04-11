@@ -1,6 +1,6 @@
 import { useParams, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
-import {ProductInterface} from "../models/Product.tsx";
+import {ProductInterface} from "../models/Product2.tsx";
 import RelatedProductSlider from "../component/Shop/RelatedProductSlider.tsx";
 import ProductDetails from "../component/Shop/ProductDetails.tsx";
 import NavBar from "../component/Other/NavBar.tsx";

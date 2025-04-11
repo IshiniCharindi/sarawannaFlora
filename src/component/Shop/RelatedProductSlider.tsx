@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import {ProductInterface} from "../../models/Product.tsx";
+import {ProductInterface} from "../../models/Product2.tsx";
 import CategoryCard from "../BaseHome/CategoryCard.tsx";
 
 

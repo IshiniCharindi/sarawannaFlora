@@ -3,7 +3,7 @@ import flower1 from '../../assets/images/gallery1.jpg';
 import flower2 from '../../assets/images/gallery2.jpg';
 import flower3 from '../../assets/images/gallery3.jpg';
 import flower4 from '../../assets/images/gallery4.jpg';
-import {ProductInterface} from "../../models/Product.tsx";
+import {ProductInterface} from "../../models/Product2.tsx";
 
 const ProductDetails:React.FC<ProductInterface> = ({ tittle, category,unit_price, coverImageLink,stock,description}) => {
     const [selectedImage, setSelectedImage] = useState(flower1);

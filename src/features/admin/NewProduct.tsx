@@ -40,9 +40,8 @@ export default function NewProduct() {
   };
 
   const uploadImageList = async () => {
-    console.log(fileQue)
-    const response = await uploadImageRequest(fileQue);
-    console.log(response)
+    // const response = await uploadImageRequest(fileQue);
+
   }
 
 
@@ -62,21 +61,37 @@ export default function NewProduct() {
     }, [catPopup])
 
 
+    const formSubmission = (values: any) =>{
+      console.log(values,editableText)
+    }
 
+    const [newFormRef] = Form.useForm()
   return (
       <div className='flex flex-col flex-1 w-full h-full overflow-x-hidden p-4'>
         {catPopup && <CategoryEditor closer={setCatpop}/>}
-        <Form layout='vertical' style={{ fontWeight: 'bold' }} encType='multipart/form-data'>
+        <Form 
+        initialValues={{
+          description: '',
+          topProduct: false,
+          inStock: true
+        }}
+        form={newFormRef}
+        onFinish={formSubmission}
+        layout='vertical' style={{ fontWeight: 'bold' }} encType='multipart/form-data'>
           {/* Title, Category, Unit Row */}
           <Row gutter={[16, 16]} style={{ display: 'flex', flexWrap: 'wrap' }}>
             <Col flex="1 1 300px">
-              <Form.Item label="Title" rules={[{ required: true, message: 'Please input the title!' }]}>
+              <Form.Item 
+              name='title'
+              required label="Title" rules={[{ required: true, message: 'Please input the title!' }]}>
                 <Input size={screens.xs ? 'middle' : 'large'} style={{ width: '100%' }} />
               </Form.Item>
             </Col>
 
             <Col flex="1 1 300px">
-              <Form.Item label="Category" rules={[{ required: true, message: 'Please select a category!' }]}>
+              <Form.Item 
+              name='category'
+              required label="Category" rules={[{ required: true, message: 'Please select a category!' }]}>
                 <Select size={screens.xs ? 'middle' : 'large'} style={{ width: '100%' }}>
                   {
                     categoryList.map((element, index) => {
@@ -95,19 +110,25 @@ export default function NewProduct() {
           {/* Price, Checkboxes, Upload Row */}
           <Row gutter={[16, 16]} align="middle">
             <Col flex=" 1 1 150px">
-              <Form.Item label="Unit" rules={[{ required: true, message: 'Please input the unit!' }]}>
+              <Form.Item 
+              name='unitMeasured'
+              required label="Unit" rules={[{ required: true, message: 'Please input the unit!' }]}>
                 <Input size={screens.xs ? 'middle' : 'large'} />
               </Form.Item>
             </Col>
 
             <Col flex=" 1 1 150px">
-              <Form.Item label="Unit Price (LKR)" rules={[{ required: true, message: 'Please input the price!' }]}>
+              <Form.Item 
+              name='unitPrice'
+              required label="Unit Price (LKR)" rules={[{ required: true, message: 'Please input the price!' }]}>
                 <Input type="number" size={screens.xs ? 'middle' : 'large'} />
               </Form.Item>
             </Col>
 
             <Col flex="1 1 150px" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-              <Form.Item
+              <Form.Item 
+              name='inStock'
+              layout='horizontal'
                   label="In Stock"
                   valuePropName="checked"
                   style={{
@@ -117,13 +138,16 @@ export default function NewProduct() {
                     alignItems: 'center',
                     width: '100%'
                   }}
+            
               >
                 <Checkbox defaultChecked />
               </Form.Item>
             </Col>
 
             <Col flex="1 1 150px" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-              <Form.Item
+              <Form.Item 
+              name='topProduct'
+              layout='horizontal'
                   label="Top Product"
                   valuePropName="checked"
                   style={{
@@ -172,7 +196,7 @@ export default function NewProduct() {
           {/* Description Editor */}
           <Row gutter={[16, 16]}>
             <Col span={24}>
-              <Form.Item name="editableText" label="Product Description">
+              <Form.Item name="description" label="Product Description">
                 <Editor
                     value={editableText}
                     onTextChange={(e: EditorTextChangeEvent) => setEditableText(e.htmlValue)}
@@ -204,10 +228,11 @@ export default function NewProduct() {
                 }}
             >
               <Button
-                  type="primary"
+                  type='primary'
+                  htmlType='submit'
                   size={screens.xs ? 'middle' : 'large'}
                   block
-                  onClick={uploadImageList}
+                 
                   style={{
                     height: screens.xs ? '40px' : '48px',  // Consistent button height
                     fontSize: screens.xs ? '14px' : '16px'  // Responsive text size
