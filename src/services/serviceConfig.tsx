@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-
+const PUBLIC_ADDRESS = 'file:///D:/Projects/sarwanna%20floral/backend/public/'
 const localDomain = axios.create({
     baseURL: 'http://localhost:3000',
     headers: {
@@ -32,5 +32,6 @@ const domain = localDomain
 export default domain
 export {
     headers,
-    fileUploadHeaders
+    fileUploadHeaders,
+    PUBLIC_ADDRESS
 }

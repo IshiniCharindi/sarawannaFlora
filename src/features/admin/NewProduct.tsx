@@ -4,6 +4,7 @@ import type { GetProp, UploadFile, UploadProps } from 'antd';
 import ImgCrop from 'antd-img-crop';
 import { Editor, EditorTextChangeEvent } from "primereact/editor";
 import { uploadImageRequest } from '../../services/productRequests';
+import {PlusCircleOutlined} from '@ant-design/icons'
 
 type FileType = Parameters<GetProp<UploadProps, 'beforeUpload'>>[0];
 
@@ -13,6 +14,7 @@ export default function NewProduct() {
   const screens = useBreakpoint();
   const [editableText, setEditableText] = useState<any>('');
   const [fileList, setFileList] = useState<UploadFile[]>([]);
+  const [fileQue, setFileQue] = useState<Array<File>>([])
 
   const onChange: UploadProps['onChange'] = ({ fileList: newFileList }) => {
     setFileList(newFileList);
@@ -34,13 +36,15 @@ export default function NewProduct() {
   };
 
   const uploadImageList = async () => {
-    const response = await uploadImageRequest(fileList[0])
+    console.log(fileQue)
+    const response = await uploadImageRequest(fileQue);
     console.log(response)
   }
 
+
   return (
       <div className='flex flex-col flex-1 w-full h-full overflow-x-hidden p-4'>
-        <Form layout='vertical' align="middle" style={{ fontWeight: 'bold' }}>
+        <Form layout='vertical' style={{ fontWeight: 'bold' }} encType='multipart/form-data'>
           {/* Title, Category, Unit Row */}
           <Row gutter={[16, 16]} style={{ display: 'flex', flexWrap: 'wrap' }}>
             <Col flex="1 1 300px">
@@ -53,6 +57,10 @@ export default function NewProduct() {
               <Form.Item label="Category" rules={[{ required: true, message: 'Please select a category!' }]}>
                 <Select size={screens.xs ? 'middle' : 'large'} style={{ width: '100%' }} />
               </Form.Item>
+            </Col>
+
+            <Col flex="1 1 100px" className='flex items-center'>
+              <PlusCircleOutlined className='text-3xl cursor-pointer'/>
             </Col>
           </Row>
 
@@ -106,10 +114,18 @@ export default function NewProduct() {
             <Form.Item label="Images">
               <ImgCrop rotationSlider>
                 <Upload
-                    beforeUpload={(file) => true}
-                    customRequest={({ file, onSuccess }) => onSuccess && onSuccess("ok")}
+                    beforeUpload={(file) => {
+                      console.log('Before upload:');
+                      return true
+
+                    }}
+                    customRequest={({ file, onSuccess }) => {
+                      setFileQue(pre => { return [...pre, file as File]})
+                      onSuccess && onSuccess("ok")
+                    }}
                     name="file"
                     maxCount={8}
+                    // action={'http://localhost:3000/product/uploadImage'}
                     accept='.png,.jpg,.jpeg'
                     listType="picture-card"
                     fileList={fileList}
@@ -148,6 +164,7 @@ export default function NewProduct() {
                 width: '100%'
               }}
           >
+
             <Col
                 xs={24}  // Full width on mobile
                 sm={12}  // Half width on tablet+
@@ -182,6 +199,8 @@ export default function NewProduct() {
                   padding: '0 8px'  // Internal spacing
                 }}
             >
+
+              
               <Button
                   type="default"
                   size={screens.xs ? 'middle' : 'large'}
