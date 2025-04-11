@@ -8,6 +8,9 @@ import {PlusCircleOutlined} from '@ant-design/icons'
 import CategoryEditor from './CategoryEditor';
 import Category, { CategoryServices } from '../../models/Category';
 import { ProductServices } from '../../models/Product';
+import { useDispatch } from 'react-redux';
+import { AppDispatch } from '../../redux/store';
+import { setLoading } from '../../redux/loading-slice';
 
 
 type FileType = Parameters<GetProp<UploadProps, 'beforeUpload'>>[0];
@@ -15,6 +18,8 @@ type FileType = Parameters<GetProp<UploadProps, 'beforeUpload'>>[0];
 const { useBreakpoint } = Grid;
 
 export default function NewProduct() {
+  const dispatch: AppDispatch = useDispatch()
+
   const screens = useBreakpoint();
   const [editableText, setEditableText] = useState<any>('');
   const [fileList, setFileList] = useState<UploadFile[]>([]);
@@ -45,11 +50,13 @@ export default function NewProduct() {
   const [categoryList, setCategoryList] = useState<Array<Category>>([])
   // Load the existing categories 
   const loadCategories = async () => {
+    dispatch(setLoading(true))
     const res = await CategoryServices.loadCategories()
     if(res) setCategoryList(res);
     else {
         // Display Error as failed to load categories
     }
+    dispatch(setLoading(false))
   }
 
     useEffect(() => {
@@ -60,6 +67,7 @@ export default function NewProduct() {
 
     // Form submission *****************************8
     const formSubmission = async (values: any) =>{
+      dispatch(setLoading(true))
       const res = await ProductServices.productSubmission(fileQue, {...values, description: editableText})
       if(res) {
         // Display product create success
@@ -70,6 +78,7 @@ export default function NewProduct() {
       } else {
         // Error as product creation failed
       }
+      dispatch(setLoading(false))
     }
 
     const [newFormRef] = Form.useForm()
